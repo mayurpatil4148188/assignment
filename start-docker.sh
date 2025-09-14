@@ -15,6 +15,6 @@ echo "🔨 Building and starting containers..."
 docker-compose up --build
 
 echo "🌟 Application is running!"
-echo "   API: http://localhost:5000"
+echo "   API: http://localhost:5005"
 echo "   With Nginx: http://localhost:80"
-echo "   Health check: http://localhost:5000/api/health/"
+echo "   Health check: http://localhost:5005/api/health/"

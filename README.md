@@ -92,8 +92,8 @@ student-platform/
    ```
 
 5. **Access the API**
-   - API Base URL: `http://localhost:5000`
-   - Health Check: `http://localhost:5000/api/health/`
+   - API Base URL: `http://localhost:5005`
+   - Health Check: `http://localhost:5005/api/health/`
 
 ### Option 2: Docker (Recommended)
 
@@ -109,7 +109,7 @@ student-platform/
    ```
 
 3. **Access the API**
-   - API Base URL: `http://localhost:5000`
+   - API Base URL: `http://localhost:5005`
    - With Nginx: `http://localhost:80`
 
 ## API Endpoints
@@ -280,7 +280,7 @@ docker-compose -f docker-compose.yml up -d --build
 1. Install dependencies: `pip install -r requirements.txt`
 2. Set environment variables
 3. Run database migrations: `python database_utils.py reset`
-4. Start with Gunicorn: `gunicorn --bind 0.0.0.0:5000 app:app`
+4. Start with Gunicorn: `gunicorn --bind 0.0.0.0:5005 app:app`
 
 ## Error Handling
 

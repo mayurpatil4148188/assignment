@@ -4,7 +4,7 @@
 The Student Platform API provides endpoints for managing students and their university applications. The API follows RESTful conventions and returns JSON responses.
 
 ## Base URL
-- Development: `http://localhost:5000`
+- Development: `http://localhost:5005`
 - Production: `http://your-domain.com`
 
 ## Authentication

@@ -28,8 +28,8 @@ pytest tests/ -v
 
 # Start the application
 echo "🌟 Starting Flask application..."
-echo "   API will be available at: http://localhost:5000"
-echo "   Health check: http://localhost:5000/api/health/"
+echo "   API will be available at: http://localhost:5005"
+echo "   Health check: http://localhost:5005/api/health/"
 echo "   Press Ctrl+C to stop the server"
 echo ""
 

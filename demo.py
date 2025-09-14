@@ -7,7 +7,7 @@ import requests
 import json
 import time
 
-BASE_URL = "http://localhost:5000"
+BASE_URL = "http://localhost:5005"
 
 def make_request(method, endpoint, data=None):
     """Make HTTP request and return response"""

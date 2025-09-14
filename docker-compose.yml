@@ -20,7 +20,7 @@ services:
   web:
     build: .
     ports:
-      - "5000:5000"
+      - "5005:5005"
     environment:
       - FLASK_ENV=production
       - DATABASE_URL=postgresql://postgres:1234@db:5432/student_platform_db
@@ -32,7 +32,7 @@ services:
       - .:/app
     command: >
       sh -c "python database_utils.py reset &&
-             gunicorn --bind 0.0.0.0:5000 --workers 4 --timeout 120 app:app"
+             gunicorn --bind 0.0.0.0:5005 --workers 4 --timeout 120 app:app"
 
   nginx:
     image: nginx:alpine
