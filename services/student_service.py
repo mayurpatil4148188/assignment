@@ -1,4 +1,3 @@
-from app import db
 from models.student import Student
 from models.application import Application
 from datetime import datetime
@@ -13,6 +12,8 @@ class StudentService:
     @staticmethod
     def create_student(data):
         """Create a new student with validation"""
+        from database import db
+        
         try:
             student = Student(
                 name=data.get('name', '').strip(),
@@ -74,6 +75,8 @@ class StudentService:
     @staticmethod
     def update_student(student_id, data):
         """Update student with validation"""
+        from database import db
+        
         try:
             student = Student.query.get(student_id)
             if not student:
@@ -119,6 +122,8 @@ class StudentService:
     @staticmethod
     def delete_student(student_id):
         """Delete student and all associated applications"""
+        from database import db
+        
         try:
             student = Student.query.get(student_id)
             if not student:
@@ -139,6 +144,8 @@ class StudentService:
     @staticmethod
     def calculate_highest_status_and_intake(student_id):
         """Calculate and update student's highest status and intake"""
+        from database import db
+        
         try:
             student = Student.query.get(student_id)
             if not student:

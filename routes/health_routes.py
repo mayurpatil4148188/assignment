@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app import db
+from database import db
 from utils.response_utils import ResponseUtils
 
 health_bp = Blueprint('health', __name__)

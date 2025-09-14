@@ -1,4 +1,4 @@
-from app import db
+# Import db from app module when needed
 from models.application import Application
 from models.student import Student
 from services.student_service import StudentService
@@ -14,6 +14,8 @@ class ApplicationService:
     @staticmethod
     def create_application(student_id, data):
         """Create a new application with validation and update student's highest status/intake"""
+        from database import db
+        
         try:
             # Check if student exists
             student = Student.query.get(student_id)
@@ -99,6 +101,8 @@ class ApplicationService:
     @staticmethod
     def update_application(application_id, data):
         """Update application with validation and update student's highest status/intake"""
+        from database import db
+        
         try:
             application = Application.query.get(application_id)
             if not application:
@@ -140,6 +144,8 @@ class ApplicationService:
     @staticmethod
     def delete_application(application_id):
         """Delete application and update student's highest status/intake"""
+        from database import db
+        
         try:
             application = Application.query.get(application_id)
             if not application:
