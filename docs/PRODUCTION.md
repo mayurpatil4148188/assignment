@@ -146,16 +146,16 @@ volumes:
 
 ```bash
 # Build the Docker images
-docker-compose build
+sudo docker compose build
 
 # Start the services
-docker-compose up -d
+sudo docker compose up -d
 
 # Check if all services are running
-docker-compose ps
+sudo docker compose ps
 
 # View logs
-docker-compose logs -f
+sudo docker compose logs -f
 ```
 
 ### Step 7: Initialize the Database
@@ -165,13 +165,13 @@ docker-compose logs -f
 sleep 30
 
 # Run database migrations
-docker-compose exec web flask db upgrade
+sudo docker compose exec web flask db upgrade
 
 # Create initial database tables
-docker-compose exec web python database_utils.py tables
+sudo docker compose exec web python database_utils.py tables
 
 # Verify tables were created
-docker-compose exec web python database_utils.py show
+sudo docker compose exec web python database_utils.py show
 ```
 
 ### Step 8: Test the Application
@@ -292,15 +292,15 @@ sudo ufw status
 
 ```bash
 # View all logs
-docker-compose logs -f
+sudo docker compose logs -f
 
 # View specific service logs
-docker-compose logs -f web
-docker-compose logs -f db
-docker-compose logs -f nginx
+sudo docker compose logs -f web
+sudo docker compose logs -f db
+sudo docker compose logs -f nginx
 
 # View logs with timestamps
-docker-compose logs -f -t
+sudo docker compose logs -f -t
 ```
 
 ### 2. Monitor System Resources
@@ -335,7 +335,7 @@ BACKUP_FILE="student_platform_backup_$DATE.sql"
 
 mkdir -p $BACKUP_DIR
 
-docker-compose exec -T db pg_dump -U postgres student_platform_db > $BACKUP_DIR/$BACKUP_FILE
+sudo docker compose exec -T db pg_dump -U postgres student_platform_db > $BACKUP_DIR/$BACKUP_FILE
 
 # Keep only last 7 days of backups
 find $BACKUP_DIR -name "student_platform_backup_*.sql" -mtime +7 -delete
@@ -365,22 +365,22 @@ crontab -e
 git pull origin main
 
 # Rebuild and restart services
-docker-compose down
-docker-compose build
-docker-compose up -d
+sudo docker compose down
+sudo docker compose build
+sudo docker compose up -d
 
 # Run database migrations if needed
-docker-compose exec web flask db upgrade
+sudo docker compose exec web flask db upgrade
 ```
 
 ### 2. Scale Application (Optional)
 
 ```bash
 # Scale web service to multiple instances
-docker-compose up -d --scale web=3
+sudo docker compose up -d --scale web=3
 
 # Check scaled services
-docker-compose ps
+sudo docker compose ps
 ```
 
 ### 3. Health Checks
@@ -418,25 +418,25 @@ chmod +x health_check.sh
 #### 1. Database Connection Issues
 ```bash
 # Check if database is running
-docker-compose ps db
+sudo docker compose ps db
 
 # Check database logs
-docker-compose logs db
+sudo docker compose logs db
 
 # Test database connection
-docker-compose exec web python -c "from app import create_app; from database import db; app = create_app(); app.app_context().push(); print('DB connected:', db.engine.execute('SELECT 1').scalar())"
+sudo docker compose exec web python -c "from app import create_app; from database import db; app = create_app(); app.app_context().push(); print('DB connected:', db.engine.execute('SELECT 1').scalar())"
 ```
 
 #### 2. Application Not Starting
 ```bash
 # Check application logs
-docker-compose logs web
+sudo docker compose logs web
 
 # Check if all dependencies are installed
-docker-compose exec web pip list
+sudo docker compose exec web pip list
 
 # Restart services
-docker-compose restart
+sudo docker compose restart
 ```
 
 #### 3. Port Conflicts
@@ -463,7 +463,7 @@ chmod -R 755 /opt/your-repo-name
 
 ```bash
 # Connect to database
-docker-compose exec db psql -U postgres -d student_platform_db
+sudo docker compose exec db psql -U postgres -d student_platform_db
 
 # Create indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_students_email ON students(email);
@@ -513,10 +513,10 @@ services:
 
 If you encounter issues:
 
-1. Check application logs: `docker-compose logs -f`
+1. Check application logs: `sudo docker compose logs -f`
 2. Verify environment variables: `cat .env`
-3. Test database connection: `docker-compose exec web python database_utils.py show`
-4. Check service status: `docker-compose ps`
+3. Test database connection: `sudo docker compose exec web python database_utils.py show`
+4. Check service status: `sudo docker compose ps`
 5. Review this documentation for troubleshooting steps
 
 ## 🎉 Success!
