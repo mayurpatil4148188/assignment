@@ -73,80 +73,165 @@ class StudentPlatformAPIClient:
             self.logger.error(f"❌ API connection failed: {str(e)}")
             return False
     
-    def create_student(self, student_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-        """Create a student via API"""
-        try:
-            # Prepare student data for API (remove timestamps)
-            api_data = {
-                "name": student_data["name"],
-                "email": student_data["email"],
-                "phone": student_data["phone"]
-            }
-            
-            response = self.session.post(
-                f"{self.base_url}/api/students/",
-                json=api_data,
-                timeout=30
-            )
-            
-            if response.status_code == 201:
-                try:
-                    created_student = response.json()
-                    self.logger.debug(f"Student response: {created_student}")
-                    student_id = created_student.get('id') or created_student.get('student_id')
-                    self.logger.info(f"✅ Created student: {student_data['name']} (ID: {student_id})")
-                    return created_student
-                except Exception as e:
-                    error_msg = f"Failed to parse student response: {str(e)} - Response: {response.text}"
+    def create_student(self, student_data: Dict[str, Any], retries: int = 3) -> Optional[Dict[str, Any]]:
+        """Create a student via API with retry logic"""
+        for attempt in range(retries):
+            try:
+                # Prepare student data for API (remove timestamps)
+                api_data = {
+                    "name": student_data["name"],
+                    "email": student_data["email"],
+                    "phone": student_data["phone"]
+                }
+                
+                self.logger.debug(f"Creating student (attempt {attempt + 1}/{retries}): {api_data}")
+                
+                response = self.session.post(
+                    f"{self.base_url}/api/students/",
+                    json=api_data,
+                    timeout=60  # Increased timeout
+                )
+                
+                self.logger.debug(f"Response status: {response.status_code}")
+                self.logger.debug(f"Response text: {response.text}")
+                
+                if response.status_code == 201:
+                    try:
+                        response_json = response.json()
+                        self.logger.debug(f"Full response: {response_json}")
+                        
+                        # Extract student data from the response structure
+                        if response_json.get('success') and 'data' in response_json:
+                            student_data_response = response_json['data']
+                            student_id = student_data_response.get('id')
+                            self.logger.info(f"✅ Created student: {student_data['name']} (ID: {student_id})")
+                            return student_data_response
+                        else:
+                            # Fallback: try to get ID from response directly
+                            student_id = response_json.get('id') or response_json.get('student_id')
+                            if student_id:
+                                self.logger.info(f"✅ Created student: {student_data['name']} (ID: {student_id})")
+                                return response_json
+                            else:
+                                error_msg = f"No student ID found in response: {response_json}"
+                                self.logger.error(f"❌ {error_msg}")
+                                self.errors.append(error_msg)
+                                return None
+                                
+                    except Exception as e:
+                        error_msg = f"Failed to parse student response: {str(e)} - Response: {response.text}"
+                        self.logger.error(f"❌ {error_msg}")
+                        self.errors.append(error_msg)
+                        return None
+                else:
+                    error_msg = f"Failed to create student {student_data['name']}: {response.status_code} - {response.text}"
                     self.logger.error(f"❌ {error_msg}")
+                    if attempt == retries - 1:  # Last attempt
+                        self.errors.append(error_msg)
+                        return None
+                    else:
+                        self.logger.warning(f"⚠️  Retrying in 2 seconds... (attempt {attempt + 1}/{retries})")
+                        time.sleep(2)
+                        
+            except requests.exceptions.Timeout:
+                error_msg = f"Timeout creating student {student_data['name']} (attempt {attempt + 1}/{retries})"
+                self.logger.warning(f"⚠️  {error_msg}")
+                if attempt == retries - 1:
                     self.errors.append(error_msg)
                     return None
-            else:
-                error_msg = f"Failed to create student {student_data['name']}: {response.status_code} - {response.text}"
+                else:
+                    time.sleep(2)
+            except Exception as e:
+                error_msg = f"Exception creating student {student_data['name']}: {str(e)}"
                 self.logger.error(f"❌ {error_msg}")
-                self.errors.append(error_msg)
-                return None
-                
-        except Exception as e:
-            error_msg = f"Exception creating student {student_data['name']}: {str(e)}"
-            self.logger.error(f"❌ {error_msg}")
-            self.errors.append(error_msg)
-            return None
+                if attempt == retries - 1:
+                    self.errors.append(error_msg)
+                    return None
+                else:
+                    time.sleep(2)
+        
+        return None
     
-    def create_application(self, application_data: Dict[str, Any], student_id: int) -> Optional[Dict[str, Any]]:
-        """Create an application via API"""
-        try:
-            # Prepare application data for API
-            api_data = {
-                "student_id": student_id,
-                "university_name": application_data["university_name"],
-                "program_name": application_data["program_name"],
-                "intake": application_data["intake"],
-                "status": application_data["status"]
-            }
-            
-            response = self.session.post(
-                f"{self.base_url}/api/applications/",
-                json=api_data,
-                timeout=30
-            )
-            
-            if response.status_code == 201:
-                created_application = response.json()
-                app_id = created_application.get('id') or created_application.get('application_id')
-                self.logger.info(f"✅ Created application: {application_data['university_name']} - {application_data['program_name']} (ID: {app_id})")
-                return created_application
-            else:
-                error_msg = f"Failed to create application for student {student_id}: {response.status_code} - {response.text}"
-                self.logger.error(f"❌ {error_msg}")
-                self.errors.append(error_msg)
-                return None
+    def create_application(self, application_data: Dict[str, Any], student_id: int, retries: int = 3) -> Optional[Dict[str, Any]]:
+        """Create an application via API with retry logic"""
+        for attempt in range(retries):
+            try:
+                # Prepare application data for API
+                api_data = {
+                    "student_id": student_id,
+                    "university_name": application_data["university_name"],
+                    "program_name": application_data["program_name"],
+                    "intake": application_data["intake"],
+                    "status": application_data["status"]
+                }
                 
-        except Exception as e:
-            error_msg = f"Exception creating application for student {student_id}: {str(e)}"
-            self.logger.error(f"❌ {error_msg}")
-            self.errors.append(error_msg)
-            return None
+                self.logger.debug(f"Creating application (attempt {attempt + 1}/{retries}): {api_data}")
+                
+                response = self.session.post(
+                    f"{self.base_url}/api/applications/",
+                    json=api_data,
+                    timeout=60  # Increased timeout
+                )
+                
+                self.logger.debug(f"Response status: {response.status_code}")
+                self.logger.debug(f"Response text: {response.text}")
+                
+                if response.status_code == 201:
+                    try:
+                        response_json = response.json()
+                        self.logger.debug(f"Full response: {response_json}")
+                        
+                        # Extract application data from the response structure
+                        if response_json.get('success') and 'data' in response_json:
+                            app_data_response = response_json['data']
+                            app_id = app_data_response.get('id')
+                            self.logger.info(f"✅ Created application: {application_data['university_name']} - {application_data['program_name']} (ID: {app_id})")
+                            return app_data_response
+                        else:
+                            # Fallback: try to get ID from response directly
+                            app_id = response_json.get('id') or response_json.get('application_id')
+                            if app_id:
+                                self.logger.info(f"✅ Created application: {application_data['university_name']} - {application_data['program_name']} (ID: {app_id})")
+                                return response_json
+                            else:
+                                error_msg = f"No application ID found in response: {response_json}"
+                                self.logger.error(f"❌ {error_msg}")
+                                self.errors.append(error_msg)
+                                return None
+                                
+                    except Exception as e:
+                        error_msg = f"Failed to parse application response: {str(e)} - Response: {response.text}"
+                        self.logger.error(f"❌ {error_msg}")
+                        self.errors.append(error_msg)
+                        return None
+                else:
+                    error_msg = f"Failed to create application for student {student_id}: {response.status_code} - {response.text}"
+                    self.logger.error(f"❌ {error_msg}")
+                    if attempt == retries - 1:  # Last attempt
+                        self.errors.append(error_msg)
+                        return None
+                    else:
+                        self.logger.warning(f"⚠️  Retrying in 2 seconds... (attempt {attempt + 1}/{retries})")
+                        time.sleep(2)
+                        
+            except requests.exceptions.Timeout:
+                error_msg = f"Timeout creating application for student {student_id} (attempt {attempt + 1}/{retries})"
+                self.logger.warning(f"⚠️  {error_msg}")
+                if attempt == retries - 1:
+                    self.errors.append(error_msg)
+                    return None
+                else:
+                    time.sleep(2)
+            except Exception as e:
+                error_msg = f"Exception creating application for student {student_id}: {str(e)}"
+                self.logger.error(f"❌ {error_msg}")
+                if attempt == retries - 1:
+                    self.errors.append(error_msg)
+                    return None
+                else:
+                    time.sleep(2)
+        
+        return None
     
     def load_students_data(self, json_file: str = "students.json") -> Dict[str, Any]:
         """Load students data from JSON file"""
@@ -181,21 +266,29 @@ class StudentPlatformAPIClient:
         
         # Create students first
         self.logger.info(f"👥 Creating {len(students)} students...")
+        successful_students = 0
         for i, student_data in enumerate(students, 1):
             self.logger.info(f"   Processing student {i}/{len(students)}: {student_data['name']}")
             
             created_student = self.create_student(student_data)
             if created_student:
                 # Map original student index to new student ID
-                student_id = created_student.get('id') or created_student.get('student_id')
+                student_id = created_student.get('id')
                 if student_id:
                     self.created_students[i] = student_id
+                    successful_students += 1
+                    self.logger.debug(f"Mapped student {i} -> ID {student_id}")
                 else:
                     self.logger.error(f"❌ No ID found in student response: {created_student}")
                     self.errors.append(f"No ID found in student response for {student_data['name']}")
+            else:
+                self.logger.error(f"❌ Failed to create student: {student_data['name']}")
+                self.errors.append(f"Failed to create student: {student_data['name']}")
             
             # Small delay to avoid overwhelming the API
-            time.sleep(0.1)
+            time.sleep(0.5)
+        
+        self.logger.info(f"✅ Successfully created {successful_students}/{len(students)} students")
         
         # Create applications
         self.logger.info(f"📝 Creating applications...")
@@ -215,7 +308,7 @@ class StudentPlatformAPIClient:
                 self.errors.append(error_msg)
             
             # Small delay to avoid overwhelming the API
-            time.sleep(0.1)
+            time.sleep(0.5)
         
         self.logger.info(f"✅ Created {application_count} applications")
     

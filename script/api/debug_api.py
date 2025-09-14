@@ -37,6 +37,15 @@ def test_api_response():
                 response_json = response.json()
                 print(f"✅ Parsed JSON: {json.dumps(response_json, indent=2)}")
                 print(f"🔑 Available keys: {list(response_json.keys())}")
+                
+                # Check for the expected response structure
+                if response_json.get('success') and 'data' in response_json:
+                    student_data = response_json['data']
+                    print(f"📊 Student data: {json.dumps(student_data, indent=2)}")
+                    print(f"🆔 Student ID: {student_data.get('id')}")
+                else:
+                    print("⚠️  Response doesn't match expected format (success + data)")
+                    
             except Exception as e:
                 print(f"❌ Failed to parse JSON: {e}")
         else:
