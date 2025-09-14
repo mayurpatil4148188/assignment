@@ -1,0 +1,1244 @@
+{
+  "metadata": {
+    "generated_at": "2025-09-14T16:56:42.297749",
+    "total_students": 50,
+    "total_applications": 98,
+    "description": "Realistic dummy data for Student Platform API"
+  },
+  "students": [
+    {
+      "name": "Destiny Morgan",
+      "email": "sylvia07@example.net",
+      "phone": "+12838435011",
+      "created_at": "2023-09-24T21:05:18.222059",
+      "updated_at": "2025-02-21T08:05:22.284592"
+    },
+    {
+      "name": "Emily Chavez",
+      "email": "jose67@example.net",
+      "phone": "+17838667391",
+      "created_at": "2024-10-11T17:15:50.077558",
+      "updated_at": "2025-03-23T12:21:48.852234"
+    },
+    {
+      "name": "Amy Bolton",
+      "email": "elizabethchavez@example.net",
+      "phone": "+11942212958",
+      "created_at": "2024-04-05T08:43:05.114058",
+      "updated_at": "2025-01-03T01:21:35.932909"
+    },
+    {
+      "name": "Mr. Matthew Dudley",
+      "email": "mccormickdavid@example.com",
+      "phone": "+18025917545",
+      "created_at": "2025-06-27T16:55:31.270871",
+      "updated_at": "2025-05-26T01:30:19.425969"
+    },
+    {
+      "name": "Kyle Oconnor",
+      "email": "sarahboyd@example.org",
+      "phone": "+11781741526",
+      "created_at": "2024-03-06T04:27:05.551616",
+      "updated_at": "2025-05-03T11:02:07.704098"
+    },
+    {
+      "name": "James Brown",
+      "email": "joyhartman@example.net",
+      "phone": "+10015229690",
+      "created_at": "2025-05-19T20:05:42.516333",
+      "updated_at": "2025-03-30T16:28:56.824739"
+    },
+    {
+      "name": "Margaret Williams",
+      "email": "devon78@example.org",
+      "phone": "+16082836249",
+      "created_at": "2023-11-30T01:29:54.291847",
+      "updated_at": "2025-03-03T15:34:34.245094"
+    },
+    {
+      "name": "Deborah House",
+      "email": "nelsonkayla@example.net",
+      "phone": "+16925809904",
+      "created_at": "2024-12-21T06:41:29.597759",
+      "updated_at": "2024-12-09T09:33:18.949887"
+    },
+    {
+      "name": "Edward Vaughn",
+      "email": "hughesmelinda@example.com",
+      "phone": "+18744581045",
+      "created_at": "2023-11-01T16:28:00.143046",
+      "updated_at": "2025-07-11T15:13:03.836448"
+    },
+    {
+      "name": "Terry Anderson",
+      "email": "erinsheppard@example.org",
+      "phone": "+11977919253",
+      "created_at": "2024-12-15T04:37:57.098592",
+      "updated_at": "2024-12-18T09:08:06.910241"
+    },
+    {
+      "name": "Jason Williams",
+      "email": "baileychristina@example.com",
+      "phone": "+13539976382",
+      "created_at": "2025-08-14T19:51:05.610334",
+      "updated_at": "2024-12-18T04:40:52.319262"
+    },
+    {
+      "name": "Michael Smith",
+      "email": "andersonroger@example.org",
+      "phone": "+11211492722",
+      "created_at": "2024-05-20T12:05:28.711004",
+      "updated_at": "2025-04-19T04:57:08.499719"
+    },
+    {
+      "name": "Brian Goodman",
+      "email": "kendragardner@example.com",
+      "phone": "+11285339882",
+      "created_at": "2024-12-25T06:22:58.164002",
+      "updated_at": "2025-06-06T20:59:17.752307"
+    },
+    {
+      "name": "Alexandra Mcdowell",
+      "email": "mark87@example.com",
+      "phone": "+17557311427",
+      "created_at": "2024-06-05T12:42:10.152622",
+      "updated_at": "2024-10-05T16:14:45.790812"
+    },
+    {
+      "name": "Hannah Graham",
+      "email": "zparker@example.org",
+      "phone": "+10014319877",
+      "created_at": "2024-07-25T16:26:52.117400",
+      "updated_at": "2025-02-15T19:05:01.292897"
+    },
+    {
+      "name": "Keith Wright",
+      "email": "whitetamara@example.net",
+      "phone": "+14574133895",
+      "created_at": "2024-04-06T22:32:12.927113",
+      "updated_at": "2025-08-27T14:14:24.143246"
+    },
+    {
+      "name": "Andrew Mccoy",
+      "email": "carrmelissa@example.net",
+      "phone": "+14508257280",
+      "created_at": "2024-01-28T16:05:59.552026",
+      "updated_at": "2024-11-01T10:33:03.670320"
+    },
+    {
+      "name": "Paul Scott",
+      "email": "callahanjoseph@example.org",
+      "phone": "+18099832579",
+      "created_at": "2024-03-23T19:01:06.271219",
+      "updated_at": "2025-04-15T00:09:55.903040"
+    },
+    {
+      "name": "Brittany Henderson",
+      "email": "paulajohnson@example.net",
+      "phone": "+12967039500",
+      "created_at": "2023-11-24T06:14:58.890401",
+      "updated_at": "2024-11-17T11:14:36.166986"
+    },
+    {
+      "name": "Kathleen Keith DDS",
+      "email": "samuel82@example.org",
+      "phone": "+14333627081",
+      "created_at": "2025-03-08T14:50:20.356522",
+      "updated_at": "2025-02-21T21:54:53.172423"
+    },
+    {
+      "name": "Bradley Turner",
+      "email": "daniel87@example.org",
+      "phone": "+12667702537",
+      "created_at": "2025-03-25T23:26:30.602826",
+      "updated_at": "2025-01-11T08:13:51.388197"
+    },
+    {
+      "name": "Kristen Cline",
+      "email": "lukebarker@example.org",
+      "phone": "+10012722869",
+      "created_at": "2024-09-24T04:16:44.035324",
+      "updated_at": "2025-05-30T12:42:57.288549"
+    },
+    {
+      "name": "Linda Levy",
+      "email": "wmurray@example.com",
+      "phone": "+19535680902",
+      "created_at": "2024-12-10T15:12:13.159762",
+      "updated_at": "2025-09-11T03:16:21.006098"
+    },
+    {
+      "name": "Melissa Jones",
+      "email": "monique54@example.com",
+      "phone": "+17908822705",
+      "created_at": "2024-07-26T16:52:57.024935",
+      "updated_at": "2025-08-15T15:32:50.114558"
+    },
+    {
+      "name": "Edward Fitzpatrick II",
+      "email": "gpierce@example.net",
+      "phone": "+11916525260",
+      "created_at": "2023-12-29T22:04:49.060140",
+      "updated_at": "2024-11-23T22:47:42.259796"
+    },
+    {
+      "name": "Edward Pena",
+      "email": "carolsmith@example.org",
+      "phone": "+18533286240",
+      "created_at": "2025-03-27T15:18:21.291610",
+      "updated_at": "2025-07-07T03:59:48.282238"
+    },
+    {
+      "name": "Jamie Taylor",
+      "email": "xallison@example.com",
+      "phone": "+19883572868",
+      "created_at": "2025-05-16T14:04:24.627247",
+      "updated_at": "2025-04-03T05:10:49.699123"
+    },
+    {
+      "name": "Charles Alvarez",
+      "email": "paulahudson@example.org",
+      "phone": "+13706894836",
+      "created_at": "2024-11-11T23:23:00.491645",
+      "updated_at": "2024-12-01T12:24:40.316825"
+    },
+    {
+      "name": "Ann Davis DDS",
+      "email": "williamward@example.org",
+      "phone": "+16255004144",
+      "created_at": "2024-04-12T16:28:31.757350",
+      "updated_at": "2025-07-16T12:43:15.421349"
+    },
+    {
+      "name": "Antonio Johnson",
+      "email": "trevinodaniel@example.org",
+      "phone": "+12275197538",
+      "created_at": "2024-10-01T14:43:03.097389",
+      "updated_at": "2025-09-04T20:35:46.041650"
+    },
+    {
+      "name": "Kevin Russo",
+      "email": "mwilson@example.org",
+      "phone": "+15092731009",
+      "created_at": "2025-02-02T10:23:34.397155",
+      "updated_at": "2025-02-15T04:22:38.989309"
+    },
+    {
+      "name": "Toni Ho",
+      "email": "xtodd@example.com",
+      "phone": "+15647005731",
+      "created_at": "2025-04-09T00:04:03.490734",
+      "updated_at": "2025-09-07T13:06:41.426678"
+    },
+    {
+      "name": "Robin Walker",
+      "email": "swilliams@example.com",
+      "phone": "+19277431847",
+      "created_at": "2023-12-06T19:00:05.694205",
+      "updated_at": "2025-01-07T06:23:39.724704"
+    },
+    {
+      "name": "Jamie Rodriguez",
+      "email": "nicolehoover@example.net",
+      "phone": "+19036543938",
+      "created_at": "2024-11-29T09:46:16.973411",
+      "updated_at": "2025-07-31T13:03:59.769737"
+    },
+    {
+      "name": "Paul Perkins",
+      "email": "jacquelineware@example.org",
+      "phone": "+17713435400",
+      "created_at": "2025-07-29T23:18:27.587308",
+      "updated_at": "2024-12-24T23:09:10.339893"
+    },
+    {
+      "name": "Kathryn Singleton",
+      "email": "bowmanangel@example.com",
+      "phone": "+12603623243",
+      "created_at": "2024-09-12T09:56:39.857906",
+      "updated_at": "2025-08-12T22:21:43.716058"
+    },
+    {
+      "name": "Travis Chambers",
+      "email": "ncalderon@example.net",
+      "phone": "+11758409476",
+      "created_at": "2023-10-16T18:02:21.795572",
+      "updated_at": "2024-12-03T16:05:00.458377"
+    },
+    {
+      "name": "Noah Garcia",
+      "email": "ubell@example.org",
+      "phone": "+11507433165",
+      "created_at": "2025-02-24T19:46:56.319986",
+      "updated_at": "2025-07-25T19:04:02.776227"
+    },
+    {
+      "name": "Nicholas Brown",
+      "email": "nancyhughes@example.com",
+      "phone": "+17455078213",
+      "created_at": "2025-01-29T23:51:15.589289",
+      "updated_at": "2025-02-09T14:47:42.584285"
+    },
+    {
+      "name": "Monique Gardner",
+      "email": "carrolldarius@example.com",
+      "phone": "+17395583007",
+      "created_at": "2024-12-22T01:06:49.055551",
+      "updated_at": "2025-02-07T13:17:06.533726"
+    },
+    {
+      "name": "Alexander Newton",
+      "email": "andersondouglas@example.org",
+      "phone": "+17538291187",
+      "created_at": "2024-11-15T08:45:58.630611",
+      "updated_at": "2025-05-26T02:22:02.593992"
+    },
+    {
+      "name": "James Grant",
+      "email": "barreranicholas@example.net",
+      "phone": "+10012009943",
+      "created_at": "2024-03-17T16:51:46.872528",
+      "updated_at": "2025-03-13T12:58:09.545419"
+    },
+    {
+      "name": "Noah Tucker",
+      "email": "rowens@example.net",
+      "phone": "+10013268898",
+      "created_at": "2024-03-18T19:54:35.905574",
+      "updated_at": "2025-06-10T07:47:11.893216"
+    },
+    {
+      "name": "Laurie Sutton",
+      "email": "shawnramos@example.org",
+      "phone": "+10014509053",
+      "created_at": "2024-09-26T20:36:27.793445",
+      "updated_at": "2025-04-13T07:37:33.386432"
+    },
+    {
+      "name": "Jennifer Gonzalez",
+      "email": "simonkenneth@example.net",
+      "phone": "+12339834807",
+      "created_at": "2025-01-29T08:09:19.482813",
+      "updated_at": "2025-04-22T13:30:00.712132"
+    },
+    {
+      "name": "Alex Cameron",
+      "email": "nicholas48@example.com",
+      "phone": "+10014744666",
+      "created_at": "2025-04-19T11:07:47.572808",
+      "updated_at": "2025-09-10T21:37:09.043819"
+    },
+    {
+      "name": "Adam Anthony",
+      "email": "ffitzgerald@example.org",
+      "phone": "+10017437521",
+      "created_at": "2025-02-08T02:03:29.006778",
+      "updated_at": "2024-11-17T00:04:14.443366"
+    },
+    {
+      "name": "Jason Burns",
+      "email": "johnmason@example.com",
+      "phone": "+10018522074",
+      "created_at": "2023-10-31T22:25:26.260180",
+      "updated_at": "2024-10-06T16:09:20.545614"
+    },
+    {
+      "name": "Angela Russell",
+      "email": "carriewhite@example.com",
+      "phone": "+12595311000",
+      "created_at": "2024-12-05T15:32:56.688901",
+      "updated_at": "2025-05-03T10:18:14.287263"
+    },
+    {
+      "name": "Clarence Edwards",
+      "email": "kyle99@example.com",
+      "phone": "+13177197444",
+      "created_at": "2023-10-22T11:22:21.019741",
+      "updated_at": "2024-09-15T05:55:43.735100"
+    }
+  ],
+  "applications": [
+    {
+      "student_id": 1,
+      "university_name": "University of Connecticut",
+      "program_name": "Chemistry",
+      "intake": "Oct 2026",
+      "status": "Visa Approved",
+      "created_at": "2024-10-09T00:28:54.282328",
+      "updated_at": "2025-09-14T16:53:47.220979"
+    },
+    {
+      "student_id": 1,
+      "university_name": "University of Pittsburgh",
+      "program_name": "Materials Science",
+      "intake": "Sep 2026",
+      "status": "Building Application",
+      "created_at": "2024-11-23T09:40:50.948053",
+      "updated_at": "2025-09-14T16:54:22.162757"
+    },
+    {
+      "student_id": 2,
+      "university_name": "Northwestern University",
+      "program_name": "Software Engineering",
+      "intake": "Apr 2026",
+      "status": "Offer Received",
+      "created_at": "2024-10-08T13:39:35.336503",
+      "updated_at": "2025-09-14T16:54:39.839830"
+    },
+    {
+      "student_id": 2,
+      "university_name": "University of Maryland",
+      "program_name": "Economics",
+      "intake": "Jul 2025",
+      "status": "Offer Received",
+      "created_at": "2025-03-23T00:37:45.213744",
+      "updated_at": "2025-09-14T16:54:42.511442"
+    },
+    {
+      "student_id": 3,
+      "university_name": "Cornell University",
+      "program_name": "Industrial Engineering",
+      "intake": "Aug 2025",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-09-11T13:22:19.055150",
+      "updated_at": "2025-09-14T16:51:20.860377"
+    },
+    {
+      "student_id": 3,
+      "university_name": "University of Missouri",
+      "program_name": "Sociology",
+      "intake": "Aug 2024",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-05-20T17:19:20.508876",
+      "updated_at": "2025-09-14T16:53:23.974947"
+    },
+    {
+      "student_id": 4,
+      "university_name": "Duke University",
+      "program_name": "Education",
+      "intake": "Apr 2025",
+      "status": "Offer Received",
+      "created_at": "2025-01-16T17:15:24.825492",
+      "updated_at": "2025-09-14T16:53:30.745025"
+    },
+    {
+      "student_id": 4,
+      "university_name": "Massachusetts Institute of Technology",
+      "program_name": "Artificial Intelligence",
+      "intake": "Jul 2027",
+      "status": "Building Application",
+      "created_at": "2024-10-02T19:06:48.973544",
+      "updated_at": "2025-09-14T16:54:42.579951"
+    },
+    {
+      "student_id": 5,
+      "university_name": "Yale University",
+      "program_name": "Data Science",
+      "intake": "Aug 2026",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-07-05T12:10:46.780065",
+      "updated_at": "2025-09-14T16:53:17.431799"
+    },
+    {
+      "student_id": 6,
+      "university_name": "University of Kentucky",
+      "program_name": "English Literature",
+      "intake": "Oct 2027",
+      "status": "Application Submitted to University",
+      "created_at": "2024-09-15T15:40:56.216125",
+      "updated_at": "2025-09-14T16:54:26.540655"
+    },
+    {
+      "student_id": 6,
+      "university_name": "University of Virginia",
+      "program_name": "Psychology",
+      "intake": "Jul 2025",
+      "status": "Offer Received",
+      "created_at": "2025-08-02T03:13:27.579810",
+      "updated_at": "2025-09-14T16:53:53.585345"
+    },
+    {
+      "student_id": 7,
+      "university_name": "Northwestern University",
+      "program_name": "Accounting",
+      "intake": "Aug 2027",
+      "status": "Building Application",
+      "created_at": "2025-04-15T22:57:24.917912",
+      "updated_at": "2025-09-14T16:53:29.882127"
+    },
+    {
+      "student_id": 7,
+      "university_name": "University of Pittsburgh",
+      "program_name": "Public Policy",
+      "intake": "Sep 2026",
+      "status": "Offer Received",
+      "created_at": "2025-02-10T01:03:36.778888",
+      "updated_at": "2025-09-14T16:51:20.926821"
+    },
+    {
+      "student_id": 8,
+      "university_name": "California Institute of Technology",
+      "program_name": "Aerospace Engineering",
+      "intake": "Aug 2024",
+      "status": "Offer Received",
+      "created_at": "2024-10-21T09:25:46.837377",
+      "updated_at": "2025-09-14T16:53:09.602145"
+    },
+    {
+      "student_id": 9,
+      "university_name": "Cornell University",
+      "program_name": "Machine Learning",
+      "intake": "Dec 2025",
+      "status": "Offer Received",
+      "created_at": "2024-12-13T14:10:50.224264",
+      "updated_at": "2025-09-14T16:53:19.821098"
+    },
+    {
+      "student_id": 9,
+      "university_name": "Northwestern University",
+      "program_name": "Dentistry",
+      "intake": "Nov 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2025-02-19T14:31:40.193689",
+      "updated_at": "2025-09-14T16:54:31.423420"
+    },
+    {
+      "student_id": 9,
+      "university_name": "University of Mississippi",
+      "program_name": "Software Engineering",
+      "intake": "May 2024",
+      "status": "Offer Received",
+      "created_at": "2025-06-30T20:24:02.060670",
+      "updated_at": "2025-09-14T16:56:38.433748"
+    },
+    {
+      "student_id": 10,
+      "university_name": "Carnegie Mellon University",
+      "program_name": "Public Policy",
+      "intake": "Oct 2027",
+      "status": "Application Submitted to University",
+      "created_at": "2025-06-30T22:20:28.138664",
+      "updated_at": "2025-09-14T16:51:48.991876"
+    },
+    {
+      "student_id": 10,
+      "university_name": "University of Pittsburgh",
+      "program_name": "Data Science",
+      "intake": "Mar 2024",
+      "status": "Building Application",
+      "created_at": "2024-09-23T11:25:52.462603",
+      "updated_at": "2025-09-14T16:55:13.943517"
+    },
+    {
+      "student_id": 10,
+      "university_name": "University of Oklahoma",
+      "program_name": "Chemical Engineering",
+      "intake": "Jun 2026",
+      "status": "Offer Received",
+      "created_at": "2025-03-19T05:43:24.813931",
+      "updated_at": "2025-09-14T16:55:47.714289"
+    },
+    {
+      "student_id": 11,
+      "university_name": "University of Connecticut",
+      "program_name": "Public Health",
+      "intake": "Aug 2026",
+      "status": "Building Application",
+      "created_at": "2024-12-24T05:40:47.719023",
+      "updated_at": "2025-09-14T16:54:16.959355"
+    },
+    {
+      "student_id": 12,
+      "university_name": "University of Nebraska",
+      "program_name": "Law",
+      "intake": "Sep 2026",
+      "status": "Offer Received",
+      "created_at": "2025-09-10T04:50:23.228814",
+      "updated_at": "2025-09-14T16:54:24.121487"
+    },
+    {
+      "student_id": 12,
+      "university_name": "University of Missouri",
+      "program_name": "Business Administration",
+      "intake": "Jul 2027",
+      "status": "Offer Received",
+      "created_at": "2025-05-14T20:38:57.453465",
+      "updated_at": "2025-09-14T16:51:31.353540"
+    },
+    {
+      "student_id": 13,
+      "university_name": "University of Florida",
+      "program_name": "Social Work",
+      "intake": "Sep 2024",
+      "status": "Building Application",
+      "created_at": "2024-11-18T23:49:30.224802",
+      "updated_at": "2025-09-14T16:53:18.377724"
+    },
+    {
+      "student_id": 13,
+      "university_name": "University of California, San Diego",
+      "program_name": "Sociology",
+      "intake": "Dec 2027",
+      "status": "Application Submitted to University",
+      "created_at": "2025-06-27T00:01:44.572964",
+      "updated_at": "2025-09-14T16:52:18.487310"
+    },
+    {
+      "student_id": 13,
+      "university_name": "Stanford University",
+      "program_name": "Psychology",
+      "intake": "Jan 2026",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-05-25T17:24:43.232385",
+      "updated_at": "2025-09-14T16:51:33.479116"
+    },
+    {
+      "student_id": 14,
+      "university_name": "University of Connecticut",
+      "program_name": "Accounting",
+      "intake": "Nov 2024",
+      "status": "Building Application",
+      "created_at": "2025-01-05T13:39:52.604617",
+      "updated_at": "2025-09-14T16:51:48.585846"
+    },
+    {
+      "student_id": 14,
+      "university_name": "University of Minnesota",
+      "program_name": "Aerospace Engineering",
+      "intake": "Apr 2024",
+      "status": "Visa Approved",
+      "created_at": "2025-01-15T14:05:16.243390",
+      "updated_at": "2025-09-14T16:50:52.156163"
+    },
+    {
+      "student_id": 15,
+      "university_name": "University of Maryland",
+      "program_name": "Journalism",
+      "intake": "Jul 2025",
+      "status": "Offer Received",
+      "created_at": "2024-10-23T12:37:54.690132",
+      "updated_at": "2025-09-14T16:54:18.890239"
+    },
+    {
+      "student_id": 16,
+      "university_name": "University of California, San Diego",
+      "program_name": "International Business",
+      "intake": "Mar 2024",
+      "status": "Visa Approved",
+      "created_at": "2025-09-02T20:51:53.957988",
+      "updated_at": "2025-09-14T16:53:42.369057"
+    },
+    {
+      "student_id": 16,
+      "university_name": "New York University",
+      "program_name": "Political Science",
+      "intake": "Mar 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2025-07-08T06:43:49.425778",
+      "updated_at": "2025-09-14T16:56:12.265971"
+    },
+    {
+      "student_id": 17,
+      "university_name": "Carnegie Mellon University",
+      "program_name": "Nursing",
+      "intake": "Jul 2024",
+      "status": "Offer Received",
+      "created_at": "2025-05-06T08:26:59.733361",
+      "updated_at": "2025-09-14T16:51:40.405317"
+    },
+    {
+      "student_id": 18,
+      "university_name": "Purdue University",
+      "program_name": "Journalism",
+      "intake": "Jun 2026",
+      "status": "Building Application",
+      "created_at": "2025-03-05T12:53:08.529495",
+      "updated_at": "2025-09-14T16:55:27.812766"
+    },
+    {
+      "student_id": 18,
+      "university_name": "University of Florida",
+      "program_name": "Biomedical Engineering",
+      "intake": "May 2027",
+      "status": "Building Application",
+      "created_at": "2025-04-20T14:22:41.015651",
+      "updated_at": "2025-09-14T16:54:39.097634"
+    },
+    {
+      "student_id": 19,
+      "university_name": "University of Nebraska",
+      "program_name": "Communications",
+      "intake": "Jan 2027",
+      "status": "Offer Accepted by Student",
+      "created_at": "2024-12-13T17:31:24.126226",
+      "updated_at": "2025-09-14T16:53:24.577289"
+    },
+    {
+      "student_id": 19,
+      "university_name": "Rutgers University",
+      "program_name": "Computer Science",
+      "intake": "Mar 2025",
+      "status": "Building Application",
+      "created_at": "2025-04-26T07:09:18.034790",
+      "updated_at": "2025-09-14T16:52:58.149032"
+    },
+    {
+      "student_id": 19,
+      "university_name": "University of Maryland",
+      "program_name": "Chemistry",
+      "intake": "Jun 2024",
+      "status": "Building Application",
+      "created_at": "2024-10-30T15:52:29.653174",
+      "updated_at": "2025-09-14T16:54:26.541162"
+    },
+    {
+      "student_id": 20,
+      "university_name": "University of Rhode Island",
+      "program_name": "Statistics",
+      "intake": "Jul 2027",
+      "status": "Offer Received",
+      "created_at": "2024-10-21T17:21:36.537118",
+      "updated_at": "2025-09-14T16:54:49.866932"
+    },
+    {
+      "student_id": 20,
+      "university_name": "Cornell University",
+      "program_name": "Materials Science",
+      "intake": "May 2027",
+      "status": "Application Submitted to University",
+      "created_at": "2025-07-25T05:32:16.237752",
+      "updated_at": "2025-09-14T16:56:25.112635"
+    },
+    {
+      "student_id": 21,
+      "university_name": "Harvard University",
+      "program_name": "Computer Engineering",
+      "intake": "Feb 2027",
+      "status": "Building Application",
+      "created_at": "2025-05-27T08:15:37.928852",
+      "updated_at": "2025-09-14T16:53:19.956598"
+    },
+    {
+      "student_id": 22,
+      "university_name": "University of California, Los Angeles",
+      "program_name": "Civil Engineering",
+      "intake": "Aug 2024",
+      "status": "Visa Approved",
+      "created_at": "2025-03-20T18:23:15.799309",
+      "updated_at": "2025-09-14T16:56:25.932997"
+    },
+    {
+      "student_id": 22,
+      "university_name": "University of Connecticut",
+      "program_name": "Artificial Intelligence",
+      "intake": "Jun 2025",
+      "status": "Visa Approved",
+      "created_at": "2025-03-11T00:22:55.546041",
+      "updated_at": "2025-09-14T16:56:30.535155"
+    },
+    {
+      "student_id": 23,
+      "university_name": "University of California, San Diego",
+      "program_name": "Electrical Engineering",
+      "intake": "Jul 2025",
+      "status": "Building Application",
+      "created_at": "2025-04-25T05:47:27.393073",
+      "updated_at": "2025-09-14T16:51:43.815445"
+    },
+    {
+      "student_id": 23,
+      "university_name": "University of California, San Diego",
+      "program_name": "Biology",
+      "intake": "Nov 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2025-06-25T13:48:46.369692",
+      "updated_at": "2025-09-14T16:54:12.099947"
+    },
+    {
+      "student_id": 23,
+      "university_name": "University of Michigan",
+      "program_name": "Journalism",
+      "intake": "Mar 2026",
+      "status": "Application Submitted to University",
+      "created_at": "2024-10-03T15:24:17.865759",
+      "updated_at": "2025-09-14T16:53:43.547382"
+    },
+    {
+      "student_id": 24,
+      "university_name": "University of Arkansas",
+      "program_name": "Geography",
+      "intake": "Nov 2027",
+      "status": "Dropped",
+      "created_at": "2025-05-03T13:11:57.915866",
+      "updated_at": "2025-09-14T16:52:01.183595"
+    },
+    {
+      "student_id": 24,
+      "university_name": "Johns Hopkins University",
+      "program_name": "Civil Engineering",
+      "intake": "Mar 2027",
+      "status": "Building Application",
+      "created_at": "2024-09-14T22:47:13.926725",
+      "updated_at": "2025-09-14T16:53:03.202827"
+    },
+    {
+      "student_id": 24,
+      "university_name": "Ohio State University",
+      "program_name": "Law",
+      "intake": "Oct 2026",
+      "status": "Building Application",
+      "created_at": "2025-04-13T09:30:38.585500",
+      "updated_at": "2025-09-14T16:53:06.159601"
+    },
+    {
+      "student_id": 25,
+      "university_name": "University of Iowa",
+      "program_name": "Education",
+      "intake": "Nov 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2024-09-20T12:58:48.944906",
+      "updated_at": "2025-09-14T16:55:57.328782"
+    },
+    {
+      "student_id": 25,
+      "university_name": "University of California, Berkeley",
+      "program_name": "Computer Science",
+      "intake": "Nov 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2025-06-03T08:14:34.854850",
+      "updated_at": "2025-09-14T16:51:56.500336"
+    },
+    {
+      "student_id": 25,
+      "university_name": "University of Alabama",
+      "program_name": "Cybersecurity",
+      "intake": "Sep 2026",
+      "status": "Offer Received",
+      "created_at": "2025-03-30T15:28:14.596395",
+      "updated_at": "2025-09-14T16:52:01.614085"
+    },
+    {
+      "student_id": 26,
+      "university_name": "University of California, San Diego",
+      "program_name": "Nursing",
+      "intake": "Dec 2026",
+      "status": "Building Application",
+      "created_at": "2025-09-12T08:58:55.761172",
+      "updated_at": "2025-09-14T16:51:34.508488"
+    },
+    {
+      "student_id": 27,
+      "university_name": "University of Southern California",
+      "program_name": "Social Work",
+      "intake": "Feb 2024",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-07-12T02:52:27.249442",
+      "updated_at": "2025-09-14T16:56:38.615292"
+    },
+    {
+      "student_id": 27,
+      "university_name": "University of Washington",
+      "program_name": "Medicine",
+      "intake": "May 2024",
+      "status": "Dropped",
+      "created_at": "2025-01-27T12:32:05.385080",
+      "updated_at": "2025-09-14T16:53:41.613899"
+    },
+    {
+      "student_id": 27,
+      "university_name": "University of Arkansas",
+      "program_name": "Environmental Engineering",
+      "intake": "Jun 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2025-09-05T00:01:55.211403",
+      "updated_at": "2025-09-14T16:56:22.737883"
+    },
+    {
+      "student_id": 28,
+      "university_name": "University of Pennsylvania",
+      "program_name": "Business Administration",
+      "intake": "Oct 2025",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-04-18T17:56:03.322994",
+      "updated_at": "2025-09-14T16:51:09.402711"
+    },
+    {
+      "student_id": 28,
+      "university_name": "University of California, San Diego",
+      "program_name": "Graphic Design",
+      "intake": "Nov 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2024-12-22T09:42:02.863163",
+      "updated_at": "2025-09-14T16:54:04.890618"
+    },
+    {
+      "student_id": 29,
+      "university_name": "University of Maine",
+      "program_name": "Cybersecurity",
+      "intake": "May 2024",
+      "status": "Offer Received",
+      "created_at": "2025-05-18T03:03:40.015696",
+      "updated_at": "2025-09-14T16:56:12.362537"
+    },
+    {
+      "student_id": 29,
+      "university_name": "University of California, San Diego",
+      "program_name": "Materials Science",
+      "intake": "Aug 2025",
+      "status": "Building Application",
+      "created_at": "2025-02-22T02:20:19.553240",
+      "updated_at": "2025-09-14T16:53:00.258188"
+    },
+    {
+      "student_id": 30,
+      "university_name": "University of Oklahoma",
+      "program_name": "Urban Planning",
+      "intake": "Oct 2027",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-06-15T09:12:17.146955",
+      "updated_at": "2025-09-14T16:51:56.369675"
+    },
+    {
+      "student_id": 31,
+      "university_name": "University of Oklahoma",
+      "program_name": "Biomedical Engineering",
+      "intake": "May 2025",
+      "status": "Building Application",
+      "created_at": "2025-07-30T01:40:28.067484",
+      "updated_at": "2025-09-14T16:51:11.579570"
+    },
+    {
+      "student_id": 31,
+      "university_name": "Ohio State University",
+      "program_name": "Materials Science",
+      "intake": "Apr 2026",
+      "status": "Application Submitted to University",
+      "created_at": "2025-06-30T17:02:15.794868",
+      "updated_at": "2025-09-14T16:52:21.492883"
+    },
+    {
+      "student_id": 32,
+      "university_name": "University of West Virginia",
+      "program_name": "Mathematics",
+      "intake": "Feb 2025",
+      "status": "Building Application",
+      "created_at": "2024-10-23T05:59:07.230379",
+      "updated_at": "2025-09-14T16:52:46.760664"
+    },
+    {
+      "student_id": 32,
+      "university_name": "University of Chicago",
+      "program_name": "Public Policy",
+      "intake": "Oct 2025",
+      "status": "Offer Accepted by Student",
+      "created_at": "2024-11-20T17:28:00.036828",
+      "updated_at": "2025-09-14T16:55:07.219593"
+    },
+    {
+      "student_id": 32,
+      "university_name": "Columbia University",
+      "program_name": "Art History",
+      "intake": "Dec 2025",
+      "status": "Application Submitted to University",
+      "created_at": "2025-09-03T18:16:50.603688",
+      "updated_at": "2025-09-14T16:54:09.137454"
+    },
+    {
+      "student_id": 33,
+      "university_name": "University of Delaware",
+      "program_name": "Education",
+      "intake": "Feb 2024",
+      "status": "Building Application",
+      "created_at": "2024-12-10T11:50:50.375225",
+      "updated_at": "2025-09-14T16:56:35.546266"
+    },
+    {
+      "student_id": 33,
+      "university_name": "Northeastern University",
+      "program_name": "Architecture",
+      "intake": "Dec 2025",
+      "status": "Application Submitted to University",
+      "created_at": "2024-10-26T22:58:06.789008",
+      "updated_at": "2025-09-14T16:52:26.712994"
+    },
+    {
+      "student_id": 33,
+      "university_name": "University of Illinois at Urbana-Champaign",
+      "program_name": "Architecture",
+      "intake": "Jan 2025",
+      "status": "Application Submitted to University",
+      "created_at": "2024-10-04T17:06:52.181401",
+      "updated_at": "2025-09-14T16:52:44.819092"
+    },
+    {
+      "student_id": 34,
+      "university_name": "University of Washington",
+      "program_name": "Dentistry",
+      "intake": "Jan 2026",
+      "status": "Offer Received",
+      "created_at": "2025-04-23T16:53:55.002785",
+      "updated_at": "2025-09-14T16:52:50.426305"
+    },
+    {
+      "student_id": 34,
+      "university_name": "California Institute of Technology",
+      "program_name": "Industrial Engineering",
+      "intake": "Jul 2026",
+      "status": "Offer Accepted by Student",
+      "created_at": "2025-02-15T10:49:14.064498",
+      "updated_at": "2025-09-14T16:56:31.988357"
+    },
+    {
+      "student_id": 35,
+      "university_name": "University of California, San Diego",
+      "program_name": "Education",
+      "intake": "Nov 2026",
+      "status": "Visa Approved",
+      "created_at": "2025-05-16T11:51:23.089705",
+      "updated_at": "2025-09-14T16:52:31.657477"
+    },
+    {
+      "student_id": 36,
+      "university_name": "Northwestern University",
+      "program_name": "Data Science",
+      "intake": "Aug 2026",
+      "status": "Building Application",
+      "created_at": "2025-07-24T05:28:45.362578",
+      "updated_at": "2025-09-14T16:52:49.646241"
+    },
+    {
+      "student_id": 36,
+      "university_name": "University of Nebraska",
+      "program_name": "Social Work",
+      "intake": "Aug 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2024-10-02T17:25:09.794577",
+      "updated_at": "2025-09-14T16:51:50.094855"
+    },
+    {
+      "student_id": 37,
+      "university_name": "Johns Hopkins University",
+      "program_name": "Industrial Engineering",
+      "intake": "Jul 2024",
+      "status": "Building Application",
+      "created_at": "2025-01-01T18:17:38.117851",
+      "updated_at": "2025-09-14T16:55:59.624307"
+    },
+    {
+      "student_id": 38,
+      "university_name": "University of Pennsylvania",
+      "program_name": "Education",
+      "intake": "Oct 2027",
+      "status": "Application Submitted to University",
+      "created_at": "2024-12-26T04:02:04.607810",
+      "updated_at": "2025-09-14T16:53:34.271831"
+    },
+    {
+      "student_id": 38,
+      "university_name": "Harvard University",
+      "program_name": "Operations Research",
+      "intake": "Dec 2024",
+      "status": "Offer Received",
+      "created_at": "2024-11-27T23:00:37.595121",
+      "updated_at": "2025-09-14T16:52:49.378523"
+    },
+    {
+      "student_id": 38,
+      "university_name": "Brown University",
+      "program_name": "Urban Planning",
+      "intake": "Dec 2025",
+      "status": "Building Application",
+      "created_at": "2025-06-07T23:04:10.426928",
+      "updated_at": "2025-09-14T16:53:03.668836"
+    },
+    {
+      "student_id": 39,
+      "university_name": "University of Chicago",
+      "program_name": "Psychology",
+      "intake": "May 2026",
+      "status": "Building Application",
+      "created_at": "2025-05-11T08:49:23.790359",
+      "updated_at": "2025-09-14T16:53:35.294602"
+    },
+    {
+      "student_id": 39,
+      "university_name": "University of Florida",
+      "program_name": "Computer Engineering",
+      "intake": "Sep 2025",
+      "status": "Building Application",
+      "created_at": "2025-06-17T18:18:35.837666",
+      "updated_at": "2025-09-14T16:51:00.421028"
+    },
+    {
+      "student_id": 40,
+      "university_name": "University of Missouri",
+      "program_name": "Statistics",
+      "intake": "Nov 2027",
+      "status": "Building Application",
+      "created_at": "2025-04-18T10:21:24.514854",
+      "updated_at": "2025-09-14T16:51:03.912024"
+    },
+    {
+      "student_id": 40,
+      "university_name": "University of Pittsburgh",
+      "program_name": "Computer Science",
+      "intake": "Apr 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2024-09-20T10:36:56.837905",
+      "updated_at": "2025-09-14T16:53:12.182407"
+    },
+    {
+      "student_id": 40,
+      "university_name": "University of North Carolina at Chapel Hill",
+      "program_name": "Graphic Design",
+      "intake": "Dec 2024",
+      "status": "Offer Received",
+      "created_at": "2025-05-07T11:30:58.929451",
+      "updated_at": "2025-09-14T16:52:04.033510"
+    },
+    {
+      "student_id": 41,
+      "university_name": "University of Delaware",
+      "program_name": "Computer Engineering",
+      "intake": "Apr 2024",
+      "status": "Visa Approved",
+      "created_at": "2024-09-28T02:50:33.819033",
+      "updated_at": "2025-09-14T16:56:36.017656"
+    },
+    {
+      "student_id": 42,
+      "university_name": "Purdue University",
+      "program_name": "Journalism",
+      "intake": "May 2026",
+      "status": "Building Application",
+      "created_at": "2025-08-14T20:32:30.432061",
+      "updated_at": "2025-09-14T16:52:07.534806"
+    },
+    {
+      "student_id": 43,
+      "university_name": "Duke University",
+      "program_name": "Medicine",
+      "intake": "Nov 2026",
+      "status": "Building Application",
+      "created_at": "2025-06-27T04:36:00.817645",
+      "updated_at": "2025-09-14T16:51:29.732816"
+    },
+    {
+      "student_id": 44,
+      "university_name": "University of Minnesota",
+      "program_name": "Software Engineering",
+      "intake": "Jul 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2024-12-07T16:17:58.540230",
+      "updated_at": "2025-09-14T16:50:51.569927"
+    },
+    {
+      "student_id": 45,
+      "university_name": "University of Texas at Austin",
+      "program_name": "Industrial Engineering",
+      "intake": "Mar 2025",
+      "status": "Building Application",
+      "created_at": "2024-11-13T20:07:37.938192",
+      "updated_at": "2025-09-14T16:52:51.350613"
+    },
+    {
+      "student_id": 45,
+      "university_name": "Northeastern University",
+      "program_name": "Machine Learning",
+      "intake": "Sep 2027",
+      "status": "Building Application",
+      "created_at": "2024-10-27T11:16:38.480959",
+      "updated_at": "2025-09-14T16:53:49.290994"
+    },
+    {
+      "student_id": 45,
+      "university_name": "Harvard University",
+      "program_name": "Computer Science",
+      "intake": "May 2026",
+      "status": "Application Submitted to University",
+      "created_at": "2025-03-11T17:09:29.778583",
+      "updated_at": "2025-09-14T16:52:16.723459"
+    },
+    {
+      "student_id": 46,
+      "university_name": "Princeton University",
+      "program_name": "Mathematics",
+      "intake": "Mar 2024",
+      "status": "Application Submitted to University",
+      "created_at": "2025-03-05T11:46:48.746166",
+      "updated_at": "2025-09-14T16:55:12.205172"
+    },
+    {
+      "student_id": 47,
+      "university_name": "Stanford University",
+      "program_name": "Marketing",
+      "intake": "Jun 2025",
+      "status": "Building Application",
+      "created_at": "2024-10-14T10:40:58.402361",
+      "updated_at": "2025-09-14T16:53:39.215291"
+    },
+    {
+      "student_id": 47,
+      "university_name": "Rutgers University",
+      "program_name": "Data Science",
+      "intake": "Jan 2027",
+      "status": "Visa Approved",
+      "created_at": "2025-07-04T03:34:00.832951",
+      "updated_at": "2025-09-14T16:54:20.864868"
+    },
+    {
+      "student_id": 48,
+      "university_name": "New York University",
+      "program_name": "Architecture",
+      "intake": "Feb 2027",
+      "status": "Application Submitted to University",
+      "created_at": "2025-06-19T18:30:34.935313",
+      "updated_at": "2025-09-14T16:51:27.108551"
+    },
+    {
+      "student_id": 48,
+      "university_name": "University of Rhode Island",
+      "program_name": "Communications",
+      "intake": "May 2026",
+      "status": "Building Application",
+      "created_at": "2025-01-14T13:02:27.236213",
+      "updated_at": "2025-09-14T16:53:54.980115"
+    },
+    {
+      "student_id": 49,
+      "university_name": "Johns Hopkins University",
+      "program_name": "English Literature",
+      "intake": "Feb 2025",
+      "status": "Offer Received",
+      "created_at": "2025-03-15T10:40:06.221498",
+      "updated_at": "2025-09-14T16:55:58.897835"
+    },
+    {
+      "student_id": 49,
+      "university_name": "Stanford University",
+      "program_name": "Cybersecurity",
+      "intake": "Aug 2027",
+      "status": "Application Submitted to University",
+      "created_at": "2024-11-08T22:07:01.884899",
+      "updated_at": "2025-09-14T16:55:25.240027"
+    },
+    {
+      "student_id": 50,
+      "university_name": "University of Michigan",
+      "program_name": "Dentistry",
+      "intake": "Jan 2024",
+      "status": "Building Application",
+      "created_at": "2025-06-03T09:30:01.325036",
+      "updated_at": "2025-09-14T16:51:42.840253"
+    },
+    {
+      "student_id": 50,
+      "university_name": "Harvard University",
+      "program_name": "Public Policy",
+      "intake": "Feb 2025",
+      "status": "Application Submitted to University",
+      "created_at": "2024-10-02T15:06:33.451108",
+      "updated_at": "2025-09-14T16:52:26.381212"
+    }
+  ]
+}
