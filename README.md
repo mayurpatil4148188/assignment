@@ -146,7 +146,7 @@ student-platform/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd student-platform
+   cd folder name
    ```
 
 2. **Configure environment variables**
@@ -157,7 +157,7 @@ student-platform/
 
 3. **Run with Docker Compose**
    ```bash
-   docker-compose up --build
+   sudo docker compose build
    # OR use the Docker startup script
    ./start-docker.sh
    ```
@@ -423,13 +423,13 @@ SECRET_KEY=your-secret-key
 #### **Docker Production**
 ```bash
 # Build and run production containers
-docker-compose up --build -d
+sudo docker compose up --build -d
 
 # Check status
-docker-compose ps
+sudo docker compose ps
 
 # View logs
-docker-compose logs -f
+sudo docker compose logs -f
 ```
 
 #### **Manual Production Setup**
