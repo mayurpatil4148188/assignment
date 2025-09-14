@@ -37,8 +37,10 @@ def demo_api():
     print("\n1. Health Check")
     response = make_request("GET", "/api/health/")
     if response and response.status_code == 200:
+        data = response.json()
         print("✅ API is healthy")
-        print(f"   Response: {response.json()}")
+        print(f"   Status: {data.get('data', {}).get('status', 'unknown')}")
+        print(f"   Database: {data.get('data', {}).get('database', 'unknown')}")
     else:
         print("❌ API health check failed")
         return
@@ -52,7 +54,8 @@ def demo_api():
     }
     response = make_request("POST", "/api/students/", student_data)
     if response and response.status_code == 201:
-        student = response.json()["student"]
+        data = response.json()
+        student = data["data"]
         student_id = student["id"]
         print(f"✅ Student created: {student['name']} (ID: {student_id})")
     else:
@@ -89,7 +92,8 @@ def demo_api():
     for i, app_data in enumerate(applications_data, 1):
         response = make_request("POST", "/api/applications/", app_data)
         if response and response.status_code == 201:
-            application = response.json()["application"]
+            data = response.json()
+            application = data["data"]
             application_ids.append(application["id"])
             print(f"✅ Application {i} created: {app_data['university_name']} - {app_data['status']}")
         else:
@@ -99,7 +103,8 @@ def demo_api():
     print("\n4. Checking Highest Status")
     response = make_request("GET", f"/api/students/{student_id}/highest-status")
     if response and response.status_code == 200:
-        highest_status = response.json()
+        data = response.json()
+        highest_status = data["data"]
         print(f"✅ Highest Status: {highest_status['highest_status']}")
         print(f"   Highest Intake: {highest_status['highest_intake']}")
     else:

@@ -1,6 +1,7 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request
 from services.student_service import StudentService
 from services.application_service import ApplicationService
+from utils.response_utils import ResponseUtils
 import logging
 
 logger = logging.getLogger(__name__)
@@ -12,20 +13,22 @@ def create_student():
     try:
         data = request.get_json()
         if not data:
-            return jsonify({'error': 'No JSON data provided'}), 400
+            return ResponseUtils.validation_error_response(
+                errors=['No JSON data provided']
+            )
         
         student, errors = StudentService.create_student(data)
         if errors:
-            return jsonify({'errors': errors}), 400
+            return ResponseUtils.validation_error_response(errors)
         
-        return jsonify({
-            'message': 'Student created successfully',
-            'student': student.to_dict()
-        }), 201
+        return ResponseUtils.created_response(
+            data=student.to_dict(),
+            message='Student created successfully'
+        )
         
     except Exception as e:
         logger.error(f"Error in create_student: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        return ResponseUtils.internal_error_response()
 
 @student_bp.route('/', methods=['GET'])
 def get_students():
@@ -42,23 +45,19 @@ def get_students():
         
         students, errors = StudentService.get_all_students(page, per_page)
         if errors:
-            return jsonify({'errors': errors}), 500
+            return ResponseUtils.internal_error_response()
         
-        return jsonify({
-            'students': [student.to_dict() for student in students.items],
-            'pagination': {
-                'page': students.page,
-                'pages': students.pages,
-                'per_page': students.per_page,
-                'total': students.total,
-                'has_next': students.has_next,
-                'has_prev': students.has_prev
-            }
-        }), 200
+        return ResponseUtils.paginated_response(
+            items=[student.to_dict() for student in students.items],
+            page=students.page,
+            per_page=students.per_page,
+            total=students.total,
+            message='Students retrieved successfully'
+        )
         
     except Exception as e:
         logger.error(f"Error in get_students: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        return ResponseUtils.internal_error_response()
 
 @student_bp.route('/<int:student_id>', methods=['GET'])
 def get_student(student_id):
@@ -67,16 +66,17 @@ def get_student(student_id):
         student, errors = StudentService.get_student(student_id)
         if errors:
             if 'not found' in errors[0].lower():
-                return jsonify({'error': 'Student not found'}), 404
-            return jsonify({'errors': errors}), 500
+                return ResponseUtils.not_found_response('Student')
+            return ResponseUtils.internal_error_response()
         
-        return jsonify({
-            'student': student.to_dict()
-        }), 200
+        return ResponseUtils.success_response(
+            data=student.to_dict(),
+            message='Student retrieved successfully'
+        )
         
     except Exception as e:
         logger.error(f"Error in get_student: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        return ResponseUtils.internal_error_response()
 
 @student_bp.route('/<int:student_id>', methods=['PUT'])
 def update_student(student_id):
@@ -84,22 +84,24 @@ def update_student(student_id):
     try:
         data = request.get_json()
         if not data:
-            return jsonify({'error': 'No JSON data provided'}), 400
+            return ResponseUtils.validation_error_response(
+                errors=['No JSON data provided']
+            )
         
         student, errors = StudentService.update_student(student_id, data)
         if errors:
             if 'not found' in errors[0].lower():
-                return jsonify({'error': 'Student not found'}), 404
-            return jsonify({'errors': errors}), 400
+                return ResponseUtils.not_found_response('Student')
+            return ResponseUtils.validation_error_response(errors)
         
-        return jsonify({
-            'message': 'Student updated successfully',
-            'student': student.to_dict()
-        }), 200
+        return ResponseUtils.updated_response(
+            data=student.to_dict(),
+            message='Student updated successfully'
+        )
         
     except Exception as e:
         logger.error(f"Error in update_student: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        return ResponseUtils.internal_error_response()
 
 @student_bp.route('/<int:student_id>', methods=['DELETE'])
 def delete_student(student_id):
@@ -108,16 +110,16 @@ def delete_student(student_id):
         success, errors = StudentService.delete_student(student_id)
         if errors:
             if 'not found' in errors[0].lower():
-                return jsonify({'error': 'Student not found'}), 404
-            return jsonify({'errors': errors}), 500
+                return ResponseUtils.not_found_response('Student')
+            return ResponseUtils.internal_error_response()
         
-        return jsonify({
-            'message': 'Student deleted successfully'
-        }), 200
+        return ResponseUtils.deleted_response(
+            message='Student deleted successfully'
+        )
         
     except Exception as e:
         logger.error(f"Error in delete_student: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        return ResponseUtils.internal_error_response()
 
 @student_bp.route('/<int:student_id>/applications', methods=['GET'])
 def get_student_applications(student_id):
@@ -135,24 +137,20 @@ def get_student_applications(student_id):
         applications, errors = ApplicationService.get_applications_by_student(student_id, page, per_page)
         if errors:
             if 'not found' in errors[0].lower():
-                return jsonify({'error': 'Student not found'}), 404
-            return jsonify({'errors': errors}), 500
+                return ResponseUtils.not_found_response('Student')
+            return ResponseUtils.internal_error_response()
         
-        return jsonify({
-            'applications': [app.to_dict() for app in applications.items],
-            'pagination': {
-                'page': applications.page,
-                'pages': applications.pages,
-                'per_page': applications.per_page,
-                'total': applications.total,
-                'has_next': applications.has_next,
-                'has_prev': applications.has_prev
-            }
-        }), 200
+        return ResponseUtils.paginated_response(
+            items=[app.to_dict() for app in applications.items],
+            page=applications.page,
+            per_page=applications.per_page,
+            total=applications.total,
+            message='Student applications retrieved successfully'
+        )
         
     except Exception as e:
         logger.error(f"Error in get_student_applications: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        return ResponseUtils.internal_error_response()
 
 @student_bp.route('/<int:student_id>/highest-status', methods=['GET'])
 def get_student_highest_status(student_id):
@@ -161,11 +159,14 @@ def get_student_highest_status(student_id):
         result, errors = StudentService.calculate_highest_status_and_intake(student_id)
         if errors:
             if 'not found' in errors[0].lower():
-                return jsonify({'error': 'Student not found'}), 404
-            return jsonify({'errors': errors}), 500
+                return ResponseUtils.not_found_response('Student')
+            return ResponseUtils.internal_error_response()
         
-        return jsonify(result), 200
+        return ResponseUtils.success_response(
+            data=result,
+            message='Highest status and intake retrieved successfully'
+        )
         
     except Exception as e:
         logger.error(f"Error in get_student_highest_status: {str(e)}")
-        return jsonify({'error': 'Internal server error'}), 500
+        return ResponseUtils.internal_error_response()

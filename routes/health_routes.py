@@ -1,5 +1,6 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint
 from app import db
+from utils.response_utils import ResponseUtils
 
 health_bp = Blueprint('health', __name__)
 
@@ -9,14 +10,17 @@ def health_check():
     try:
         # Test database connection
         db.session.execute('SELECT 1')
-        return jsonify({
-            'status': 'healthy',
-            'message': 'Student Platform API is running',
-            'database': 'connected'
-        }), 200
+        return ResponseUtils.success_response(
+            data={
+                'status': 'healthy',
+                'database': 'connected'
+            },
+            message='Student Platform API is running'
+        )
     except Exception as e:
-        return jsonify({
-            'status': 'unhealthy',
-            'message': 'Database connection failed',
-            'error': str(e)
-        }), 500
+        return ResponseUtils.error_response(
+            message='Database connection failed',
+            errors=[str(e)],
+            status_code=500,
+            error_code='DATABASE_ERROR'
+        )

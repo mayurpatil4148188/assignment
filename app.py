@@ -34,16 +34,32 @@ def create_app(config_name=None):
     # Error handlers
     @app.errorhandler(400)
     def bad_request(error):
-        return {'error': 'Bad Request', 'message': str(error)}, 400
+        from utils.response_utils import ResponseUtils
+        return ResponseUtils.error_response(
+            message='Bad Request',
+            errors=[str(error)],
+            status_code=400,
+            error_code='BAD_REQUEST'
+        )
     
     @app.errorhandler(404)
     def not_found(error):
-        return {'error': 'Not Found', 'message': 'Resource not found'}, 404
+        from utils.response_utils import ResponseUtils
+        return ResponseUtils.error_response(
+            message='Resource not found',
+            status_code=404,
+            error_code='NOT_FOUND'
+        )
     
     @app.errorhandler(500)
     def internal_error(error):
+        from utils.response_utils import ResponseUtils
         db.session.rollback()
-        return {'error': 'Internal Server Error', 'message': 'An unexpected error occurred'}, 500
+        return ResponseUtils.error_response(
+            message='An unexpected error occurred',
+            status_code=500,
+            error_code='INTERNAL_ERROR'
+        )
     
     return app
 
