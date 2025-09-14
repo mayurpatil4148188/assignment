@@ -164,9 +164,6 @@ sudo docker compose logs -f
 # Wait for database to be ready (about 30 seconds)
 sleep 30
 
-# Run database migrations
-sudo docker compose exec web flask db upgrade
-
 # Create initial database tables
 sudo docker compose exec web python database_utils.py tables
 
@@ -369,8 +366,8 @@ sudo docker compose down
 sudo docker compose build
 sudo docker compose up -d
 
-# Run database migrations if needed
-sudo docker compose exec web flask db upgrade
+# Recreate database tables if needed (for schema changes)
+sudo docker compose exec web python database_utils.py tables
 ```
 
 ### 2. Scale Application (Optional)

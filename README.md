@@ -435,7 +435,7 @@ sudo docker compose logs -f
 #### **Manual Production Setup**
 1. Install dependencies: `pip install -r requirements.txt`
 2. Set environment variables
-3. Run database migrations: `python database_utils.py reset`
+3. Initialize database: `python database_utils.py reset`
 4. Start with Gunicorn: `gunicorn --bind 0.0.0.0:5005 app:app`
 
 ### **Production Features**
