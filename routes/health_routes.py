@@ -1,6 +1,7 @@
 from flask import Blueprint
 from database import db
 from utils.response_utils import ResponseUtils
+from sqlalchemy import text
 
 health_bp = Blueprint('health', __name__)
 
@@ -9,7 +10,7 @@ def health_check():
     """Health check endpoint"""
     try:
         # Test database connection
-        db.session.execute('SELECT 1')
+        db.session.execute(text('SELECT 1'))
         return ResponseUtils.success_response(
             data={
                 'status': 'healthy',
