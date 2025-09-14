@@ -1,0 +1,465 @@
+{
+  "info": {
+    "name": "Student Platform API",
+    "description": "Complete API collection for Student Platform with Students and Applications management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"phone\": \"+1234567890\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/students/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "students", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/students/?page=1&per_page=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "students", ""],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Student by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/students/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "students", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Smith\",\n  \"email\": \"john.smith@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/students/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "students", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/students/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "students", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Student Applications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/students/1/applications?page=1&per_page=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "students", "1", "applications"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Student Highest Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/students/1/highest-status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "students", "1", "highest-status"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Applications",
+      "item": [
+        {
+          "name": "Create Application",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"student_id\": 1,\n  \"university_name\": \"Harvard University\",\n  \"program_name\": \"Computer Science\",\n  \"intake\": \"Jan 2026\",\n  \"status\": \"Building Application\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/applications/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "applications", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Applications",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/applications/?page=1&per_page=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "applications", ""],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Application by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/applications/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "applications", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Application",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Offer Received\",\n  \"university_name\": \"Updated University Name\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/applications/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "applications", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Application",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/applications/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "applications", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Status Hierarchy",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/applications/status-hierarchy",
+              "host": ["{{base_url}}"],
+              "path": ["api", "applications", "status-hierarchy"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Test Scenarios",
+      "item": [
+        {
+          "name": "Complete Student Journey",
+          "item": [
+            {
+              "name": "1. Create Student",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Alice Johnson\",\n  \"email\": \"alice.johnson@example.com\",\n  \"phone\": \"+1987654321\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/students/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "students", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "2. Create First Application",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"student_id\": 1,\n  \"university_name\": \"MIT\",\n  \"program_name\": \"Data Science\",\n  \"intake\": \"Sep 2026\",\n  \"status\": \"Building Application\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/applications/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "applications", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "3. Create Second Application",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"student_id\": 1,\n  \"university_name\": \"Stanford University\",\n  \"program_name\": \"Computer Science\",\n  \"intake\": \"Jan 2026\",\n  \"status\": \"Offer Received\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/applications/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "applications", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "4. Check Highest Status",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/students/1/highest-status",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "students", "1", "highest-status"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "5. Update First Application to Higher Status",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"Visa Approved\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/applications/1",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "applications", "1"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "6. Check Updated Highest Status",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/students/1/highest-status",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "students", "1", "highest-status"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Error Handling Tests",
+          "item": [
+            {
+              "name": "Create Student with Invalid Email",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"invalid-email\",\n  \"phone\": \"+1234567890\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/students/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "students", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Application with Invalid Status",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"student_id\": 1,\n  \"university_name\": \"Test University\",\n  \"program_name\": \"Test Program\",\n  \"intake\": \"Jan 2026\",\n  \"status\": \"Invalid Status\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/applications/",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "applications", ""]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Non-existent Student",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/students/999",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "students", "999"]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
