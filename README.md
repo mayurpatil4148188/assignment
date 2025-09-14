@@ -205,6 +205,16 @@ pytest --cov=.
 # Run specific test file
 pytest tests/test_student_routes.py
 
+# Run application test file
+pytest tests/test_application_routes.py
+
+# Run single student business logic test
+pytest tests/test_individual_student_business_logic.py --student-id 1
+
+# Run batch wise all student business logic test 
+
+pytest tests/test_batch_student_business_logic.py --order asc --batch-size 10
+
 # Run with verbose output
 pytest -v
 ```

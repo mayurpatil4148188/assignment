@@ -7,6 +7,10 @@ import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 import sys
 import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Add the current directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -16,19 +20,29 @@ from database import db
 from models import Student, Application
 
 def get_db_connection():
-    """Get database connection"""
+    """Get database connection using environment variables or defaults"""
     try:
-        conn = psycopg2.connect(
-            host="localhost",
-            port="5432",
-            database="postgres",  # Connect to default postgres database first
-            user="postgres",
-            password="1234"
-        )
+        # Try to use DATABASE_URL first
+        database_url = os.getenv('DATABASE_URL')
+        if database_url:
+            print(f"🔗 Connecting using DATABASE_URL...")
+            conn = psycopg2.connect(database_url)
+        else:
+            # Fall back to individual environment variables
+            print(f"🔗 Connecting using individual environment variables...")
+            conn = psycopg2.connect(
+                host=os.getenv('DB_HOST', 'localhost'),
+                port=os.getenv('DB_PORT', '5432'),
+                database=os.getenv('DB_NAME', 'postgres'),  # Connect to default postgres database first
+                user=os.getenv('DB_USER', 'postgres'),
+                password=os.getenv('DB_PASSWORD', '1234')
+            )
+        
         conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         return conn
     except Exception as e:
-        print(f"Error connecting to database: {e}")
+        print(f"❌ Error connecting to database: {e}")
+        print(f"   Make sure DATABASE_URL is set or individual DB variables are configured")
         return None
 
 def drop_database():
@@ -118,22 +132,23 @@ def show_tables():
     try:
         app = create_app()
         with app.app_context():
-            # Get table names
-            result = db.engine.execute("""
-                SELECT table_name 
-                FROM information_schema.tables 
-                WHERE table_schema = 'public'
-                ORDER BY table_name
-            """)
-            
-            tables = [row[0] for row in result]
-            
-            if tables:
-                print("📋 Tables in student_platform_db:")
-                for table in tables:
-                    print(f"  - {table}")
-            else:
-                print("📋 No tables found in student_platform_db")
+            # Get table names using modern SQLAlchemy syntax
+            with db.engine.connect() as connection:
+                result = connection.execute(db.text("""
+                    SELECT table_name 
+                    FROM information_schema.tables 
+                    WHERE table_schema = 'public'
+                    ORDER BY table_name
+                """))
+                
+                tables = [row[0] for row in result]
+                
+                if tables:
+                    print("📋 Tables in student_platform_db:")
+                    for table in tables:
+                        print(f"  - {table}")
+                else:
+                    print("📋 No tables found in student_platform_db")
                 
     except Exception as e:
         print(f"❌ Error showing tables: {e}")
