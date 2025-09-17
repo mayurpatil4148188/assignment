@@ -44,7 +44,14 @@ This is a Flask-based REST API for managing students and their university applic
 │   └── app/                        # Feature-specific tests
 │       ├── student/                # Student feature tests
 │       └── application/            # Application feature tests
-└── docs/                           # Documentation
+├── docs/                           # Documentation
+│   ├── API_DOCUMENTATION.md        # Complete API documentation
+│   ├── PROJECT_SUMMARY.md          # Project overview
+│   ├── PRODUCTION.md               # Production deployment guide
+│   ├── TESTS_README.md             # Testing documentation
+│   ├── ALGORITHM_ANALYSIS.md       # Algorithm analysis
+│   └── RESTRUCTURE_SUMMARY.md      # Project restructuring summary
+└── README.md                       # Project overview (root level)
 ```
 
 ### Design Patterns
@@ -224,6 +231,13 @@ GET    /api/students/{id}/highest-status # Get highest status/intake
 - Document error codes and messages
 - Provide usage examples
 
+### Documentation Organization
+- **All markdown files** must be placed in the `docs/` folder
+- **Exception**: `README.md` should remain in the project root
+- **Documentation files** include: API docs, guides, summaries, analysis files
+- **File naming**: Use descriptive names like `API_DOCUMENTATION.md`, `PRODUCTION.md`, etc.
+- **Structure**: Keep documentation organized by purpose (API, deployment, testing, etc.)
+
 ## Development Workflow
 
 ### Environment Setup
@@ -339,6 +353,7 @@ When working on this project:
 8. **Follow RESTful conventions** - Use proper HTTP methods and status codes
 9. **Document changes** - Update documentation for API changes
 10. **Consider performance** - Optimize database queries and use pagination
+11. **Organize documentation** - Place all markdown files in `docs/` folder (except `README.md` in root)
 
 ## Key Files to Reference
 
