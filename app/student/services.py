@@ -1,5 +1,5 @@
 from app.student.models import Student
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy.exc import IntegrityError
 import logging
 
@@ -48,8 +48,9 @@ class StudentService:
     @staticmethod
     def get_student(student_id):
         """Get student by ID"""
+        from app.extensions import db
         try:
-            student = Student.query.get(student_id)
+            student = db.session.get(Student, student_id)
             if not student:
                 return None, ['Student not found']
             return student, None
@@ -77,7 +78,7 @@ class StudentService:
         from app.extensions import db
         
         try:
-            student = Student.query.get(student_id)
+            student = db.session.get(Student, student_id)
             if not student:
                 return None, ['Student not found']
             
@@ -103,7 +104,7 @@ class StudentService:
                 if existing_student:
                     return None, ['Email already exists']
             
-            student.updated_at = datetime.utcnow()
+            student.updated_at = datetime.now(timezone.utc)
             db.session.commit()
             
             logger.info(f"Updated student: {student_id}")
@@ -124,7 +125,7 @@ class StudentService:
         from app.extensions import db
         
         try:
-            student = Student.query.get(student_id)
+            student = db.session.get(Student, student_id)
             if not student:
                 return False, ['Student not found']
             
@@ -146,7 +147,7 @@ class StudentService:
         from app.extensions import db
         
         try:
-            student = Student.query.get(student_id)
+            student = db.session.get(Student, student_id)
             if not student:
                 return None, ['Student not found']
             
@@ -183,7 +184,7 @@ class StudentService:
                     student.highest_status = None
                     student.highest_intake = None
             
-            student.updated_at = datetime.utcnow()
+            student.updated_at = datetime.now(timezone.utc)
             db.session.commit()
             
             logger.info(f"Updated highest status/intake for student: {student_id}")

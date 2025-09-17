@@ -1,5 +1,5 @@
 from flask import jsonify
-from datetime import datetime
+from datetime import datetime, timezone
 import logging
 
 logger = logging.getLogger(__name__)
@@ -13,7 +13,7 @@ class ResponseUtils:
         response = {
             "success": True,
             "message": message,
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         if data is not None:
@@ -27,7 +27,7 @@ class ResponseUtils:
         response = {
             "success": True,
             "message": message,
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         if data is not None:
@@ -41,7 +41,7 @@ class ResponseUtils:
         response = {
             "success": True,
             "message": message,
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         if data is not None:
@@ -55,7 +55,7 @@ class ResponseUtils:
         response = {
             "success": True,
             "message": message,
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         return jsonify(response), status_code
@@ -67,7 +67,7 @@ class ResponseUtils:
             "success": False,
             "message": message,
             "error_code": error_code,
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         if errors:
@@ -118,7 +118,7 @@ class ResponseUtils:
                 "has_next": page * per_page < total,
                 "has_prev": page > 1
             },
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }
         
         return jsonify(response), 200

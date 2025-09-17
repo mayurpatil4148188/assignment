@@ -1,7 +1,7 @@
 # Import db from app module when needed
 from app.application.models import Application
 from app.student.models import Student
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy.exc import IntegrityError
 import logging
 
@@ -17,7 +17,7 @@ class ApplicationService:
         
         try:
             # Check if student exists
-            student = Student.query.get(student_id)
+            student = db.session.get(Student, student_id)
             if not student:
                 return None, ['Student not found']
             
@@ -56,8 +56,9 @@ class ApplicationService:
     @staticmethod
     def get_application(application_id):
         """Get application by ID"""
+        from app.extensions import db
         try:
-            application = Application.query.get(application_id)
+            application = db.session.get(Application, application_id)
             if not application:
                 return None, ['Application not found']
             return application, None
@@ -68,9 +69,10 @@ class ApplicationService:
     @staticmethod
     def get_applications_by_student(student_id, page=1, per_page=10):
         """Get all applications for a student with pagination"""
+        from app.extensions import db
         try:
             # Check if student exists
-            student = Student.query.get(student_id)
+            student = db.session.get(Student, student_id)
             if not student:
                 return None, ['Student not found']
             
@@ -104,7 +106,7 @@ class ApplicationService:
         from app.extensions import db
         
         try:
-            application = Application.query.get(application_id)
+            application = db.session.get(Application, application_id)
             if not application:
                 return None, ['Application not found']
             
@@ -123,10 +125,11 @@ class ApplicationService:
             if errors:
                 return None, errors
             
-            application.updated_at = datetime.utcnow()
+            application.updated_at = datetime.now(timezone.utc)
             db.session.commit()
             
             # Update student's highest status and intake
+            from app.student.services import StudentService
             StudentService.calculate_highest_status_and_intake(application.student_id)
             
             logger.info(f"Updated application: {application_id}")
@@ -147,7 +150,7 @@ class ApplicationService:
         from app.extensions import db
         
         try:
-            application = Application.query.get(application_id)
+            application = db.session.get(Application, application_id)
             if not application:
                 return False, ['Application not found']
             
