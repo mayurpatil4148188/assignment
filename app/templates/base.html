@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Platform API{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #007bff;
+        }
+        .header h1 {
+            color: #007bff;
+            margin: 0;
+        }
+        .content {
+            line-height: 1.6;
+        }
+        .api-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .endpoint {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{% block header %}Student Platform API{% endblock %}</h1>
+        </div>
+        
+        <div class="content">
+            {% block content %}
+            <div class="api-info">
+                <h2>Welcome to Student Platform API</h2>
+                <p>This is a Flask-based REST API for managing students and their university applications.</p>
+                
+                <h3>Available Endpoints:</h3>
+                <div class="endpoint">GET /api/health/ - Health check</div>
+                <div class="endpoint">GET /api/students/ - List all students</div>
+                <div class="endpoint">POST /api/students/ - Create a new student</div>
+                <div class="endpoint">GET /api/students/{id} - Get specific student</div>
+                <div class="endpoint">PUT /api/students/{id} - Update student</div>
+                <div class="endpoint">DELETE /api/students/{id} - Delete student</div>
+                <div class="endpoint">GET /api/applications/ - List all applications</div>
+                <div class="endpoint">POST /api/applications/ - Create a new application</div>
+                <div class="endpoint">GET /api/applications/{id} - Get specific application</div>
+                <div class="endpoint">PUT /api/applications/{id} - Update application</div>
+                <div class="endpoint">DELETE /api/applications/{id} - Delete application</div>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
