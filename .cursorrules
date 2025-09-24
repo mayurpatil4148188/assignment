@@ -39,8 +39,6 @@ This is a Flask-based REST API for managing students and their university applic
 ├── run.py                          # Application entry point
 ├── database_utils.py               # Database management utilities
 ├── tests/                          # Comprehensive test suite
-│   ├── test_student.py             # Student API tests
-│   ├── test_application.py         # Application API tests
 │   └── app/                        # Feature-specific tests
 │       ├── student/                # Student feature tests
 │       └── application/            # Application feature tests
