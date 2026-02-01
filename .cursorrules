@@ -1,0 +1,371 @@
+# Cursor AI Rules for Student Platform API
+
+## Project Overview
+This is a Flask-based REST API for managing students and their university applications with automatic calculation of highest status and intake based on application hierarchy. The project follows a clean architecture pattern with separation of concerns.
+
+## Technology Stack
+- **Backend**: Flask 2.3.3 (Python 3.12)
+- **Database**: PostgreSQL with SQLAlchemy ORM
+- **Testing**: pytest with comprehensive test coverage
+- **Containerization**: Docker & Docker Compose
+- **Web Server**: Gunicorn + Nginx
+- **Data Validation**: Marshmallow schemas
+- **Environment Management**: python-dotenv
+
+## Project Structure & Architecture
+
+### Directory Structure
+```
+├── app/                            # Main application package
+│   ├── __init__.py                 # Application factory and configuration
+│   ├── extensions.py               # Third-party integrations (db, etc.)
+│   ├── utils.py                    # Utility functions and response helpers
+│   ├── student/                    # Student feature module
+│   │   ├── __init__.py             # Student blueprint setup
+│   │   ├── routes.py               # Student feature routes
+│   │   ├── models.py               # Student data models
+│   │   └── services.py             # Student logic/services
+│   ├── application/                # Application feature module
+│   │   ├── __init__.py             # Application blueprint setup
+│   │   ├── routes.py               # Application form routes
+│   │   ├── models.py               # Application data models
+│   │   └── services.py             # Application logic/services
+│   ├── health/                     # Health check module
+│   │   ├── __init__.py             # Health blueprint setup
+│   │   └── routes.py               # Health check routes
+│   └── templates/                  # HTML templates
+│       └── base.html               # Shared base template
+├── config.py                       # Environment-based configuration
+├── run.py                          # Application entry point
+├── database_utils.py               # Database management utilities
+├── tests/                          # Comprehensive test suite
+│   └── app/                        # Feature-specific tests
+│       ├── student/                # Student feature tests
+│       └── application/            # Application feature tests
+├── docs/                           # Documentation
+│   ├── API_DOCUMENTATION.md        # Complete API documentation
+│   ├── PROJECT_SUMMARY.md          # Project overview
+│   ├── PRODUCTION.md               # Production deployment guide
+│   ├── TESTS_README.md             # Testing documentation
+│   ├── ALGORITHM_ANALYSIS.md       # Algorithm analysis
+│   └── RESTRUCTURE_SUMMARY.md      # Project restructuring summary
+└── README.md                       # Project overview (root level)
+```
+
+### Design Patterns
+- **Application Factory Pattern**: Used in `app/__init__.py` for flexible app creation
+- **Feature Module Pattern**: Each feature (student, application) is a self-contained module
+- **Service Layer Pattern**: Business logic separated from routes within each feature
+- **Repository Pattern**: Data access through SQLAlchemy models within feature modules
+- **Blueprint Pattern**: Modular route organization with feature-specific blueprints
+- **Configuration Pattern**: Environment-based config management
+- **Extension Pattern**: Third-party integrations centralized in `app/extensions.py`
+
+## Coding Standards & Conventions
+
+### Python Code Style
+- Follow PEP 8 guidelines
+- Use type hints where appropriate
+- Use descriptive variable and function names
+- Keep functions focused and single-purpose
+- Use docstrings for all public methods and classes
+
+### Flask-Specific Patterns
+- Use feature-based Blueprints for route organization
+- Implement proper error handling with custom error handlers
+- Use Flask's request context appropriately
+- Follow RESTful API conventions
+- Use proper HTTP status codes
+- Organize code by feature modules (student, application, health)
+- Use `app.extensions` for shared resources like database
+
+### Database Patterns
+- Use SQLAlchemy ORM for all database operations
+- Implement proper transaction management with rollback on errors
+- Use database indexes for performance optimization
+- Follow ACID principles for data integrity
+- Use cascade relationships appropriately
+
+### Error Handling
+- Always use try-catch blocks for database operations
+- Implement proper logging with appropriate log levels
+- Use standardized error responses via `ResponseUtils`
+- Handle validation errors gracefully
+- Provide meaningful error messages
+
+## Business Logic Rules
+
+### Status Hierarchy System
+Applications have a 6-tier status hierarchy with weights:
+1. **Building Application** (Weight: 1)
+2. **Application Submitted to University** (Weight: 2)
+3. **Offer Received** (Weight: 3)
+4. **Offer Accepted by Student** (Weight: 4)
+5. **Visa Approved** (Weight: 5) - Highest priority
+6. **Dropped** (Weight: 0) - Lowest priority
+
+### Highest Status Calculation
+- When an application is created/updated, automatically recalculate student's `highest_status` and `highest_intake`
+- `highest_status` = application with highest status weight
+- `highest_intake` = intake from application with highest status
+- If multiple applications have same highest status, choose closest (earliest) intake date
+
+### Data Validation
+- All input data must be validated before processing
+- Use model-level validation methods
+- Check for duplicate emails in student creation/updates
+- Validate phone number format (10-15 digits)
+- Validate email format with regex
+- Sanitize input data (strip whitespace)
+
+## API Design Guidelines
+
+### RESTful Conventions
+- Use proper HTTP methods (GET, POST, PUT, DELETE)
+- Use plural nouns for resource names
+- Use consistent URL patterns
+- Implement proper status codes (200, 201, 400, 404, 500)
+- Use pagination for list endpoints
+
+### Response Format
+- Use standardized response format via `ResponseUtils`
+- Include success/error messages
+- Provide consistent error structure
+- Include pagination metadata for list endpoints
+- Use ISO format for timestamps
+
+### Endpoint Patterns
+```
+GET    /api/students/                    # List students (paginated)
+POST   /api/students/                    # Create student
+GET    /api/students/{id}                # Get specific student
+PUT    /api/students/{id}                # Update student
+DELETE /api/students/{id}                # Delete student
+GET    /api/students/{id}/applications   # Get student's applications
+GET    /api/students/{id}/highest-status # Get highest status/intake
+```
+
+## Testing Guidelines
+
+### Test Structure
+- Use pytest framework
+- Follow AAA pattern (Arrange, Act, Assert)
+- Use fixtures for test data setup
+- Test both success and error scenarios
+- Include integration tests for business logic
+
+### Test Categories
+- **Unit Tests**: Individual function/method testing
+- **Integration Tests**: API endpoint testing
+- **Business Logic Tests**: Status hierarchy calculations
+- **Database Tests**: Data persistence and relationships
+
+### Test Data
+- Use Faker library for realistic test data
+- Create test fixtures for common scenarios
+- Test edge cases and error conditions
+- Validate business logic with multiple scenarios
+
+## Database Guidelines
+
+### Model Design
+- Use proper primary keys and foreign keys
+- Implement database indexes for performance
+- Use appropriate data types and constraints
+- Include created_at and updated_at timestamps
+- Use cascade relationships for data integrity
+
+### Query Optimization
+- Use SQLAlchemy query optimization techniques
+- Implement pagination for large datasets
+- Use database indexes on frequently queried fields
+- Avoid N+1 query problems with proper joins
+
+### Migration Management
+- Use Flask-Migrate for database schema changes
+- Create migration files for all schema changes
+- Test migrations in development before production
+- Backup database before major migrations
+
+## Security Considerations
+
+### Input Validation
+- Validate all input data
+- Sanitize user inputs
+- Use parameterized queries (SQLAlchemy ORM)
+- Implement proper error handling without exposing internals
+
+### Environment Configuration
+- Use environment variables for sensitive data
+- Never commit secrets to version control
+- Use different configurations for different environments
+- Implement proper CORS configuration
+
+## Performance Guidelines
+
+### Database Performance
+- Use connection pooling
+- Implement proper indexing
+- Use pagination for large datasets
+- Optimize queries to avoid N+1 problems
+
+### API Performance
+- Implement proper caching where appropriate
+- Use efficient serialization
+- Minimize database queries
+- Use background tasks for heavy operations
+
+## Documentation Standards
+
+### Code Documentation
+- Use docstrings for all public methods
+- Include parameter and return type information
+- Document business logic and complex algorithms
+- Maintain up-to-date API documentation
+
+### API Documentation
+- Document all endpoints with examples
+- Include request/response schemas
+- Document error codes and messages
+- Provide usage examples
+
+### Documentation Organization
+- **All markdown files** must be placed in the `docs/` folder
+- **Exception**: `README.md` should remain in the project root
+- **Documentation files** include: API docs, guides, summaries, analysis files
+- **File naming**: Use descriptive names like `API_DOCUMENTATION.md`, `PRODUCTION.md`, etc.
+- **Structure**: Keep documentation organized by purpose (API, deployment, testing, etc.)
+
+## Development Workflow
+
+### Environment Setup
+- Use virtual environments (project_env)
+- Install dependencies from requirements.txt
+- Configure environment variables
+- Set up database connection
+
+### Code Organization
+- Keep related functionality together
+- Use proper import organization
+- Follow the established directory structure
+- Maintain separation of concerns
+
+### Git Workflow
+- Use meaningful commit messages
+- Create feature branches for new development
+- Test changes before committing
+- Update documentation for API changes
+
+## Common Patterns & Examples
+
+### Feature Module Pattern
+```python
+# app/student/__init__.py
+from flask import Blueprint
+student_bp = Blueprint('students', __name__)
+from app.student import routes
+
+# app/student/models.py
+from app.extensions import db
+class Student(db.Model):
+    # Model definition with validation
+
+# app/student/services.py
+from app.student.models import Student
+class StudentService:
+    @staticmethod
+    def create_student(data):
+        # Business logic here
+        pass
+
+# app/student/routes.py
+from app.student import student_bp
+from app.student.services import StudentService
+@student_bp.route('/', methods=['POST'])
+def create_student():
+    # Route implementation
+    pass
+```
+
+### Service Layer Pattern
+```python
+class StudentService:
+    @staticmethod
+    def create_student(data):
+        try:
+            # Business logic here
+            student = Student(...)
+            errors = student.validate()
+            if errors:
+                return None, errors
+            # Database operations using app.extensions.db
+            return student, None
+        except Exception as e:
+            logger.error(f"Error: {str(e)}")
+            return None, ['An unexpected error occurred']
+```
+
+### Route Pattern
+```python
+@student_bp.route('/', methods=['POST'])
+def create_student():
+    try:
+        data = request.get_json()
+        if not data:
+            return ResponseUtils.validation_error_response(['No JSON data provided'])
+        
+        student, errors = StudentService.create_student(data)
+        if errors:
+            return ResponseUtils.validation_error_response(errors)
+        
+        return ResponseUtils.created_response(
+            data=student.to_dict(),
+            message='Student created successfully'
+        )
+    except Exception as e:
+        logger.error(f"Error in create_student: {str(e)}")
+        return ResponseUtils.internal_error_response()
+```
+
+### Model Pattern
+```python
+from app.extensions import db
+class Student(db.Model):
+    # Define fields with proper constraints
+    # Implement validation methods
+    # Include to_dict() method for serialization
+    # Use proper relationships and indexes
+```
+
+## AI Assistant Guidelines
+
+When working on this project:
+
+1. **Follow the established patterns** - Use the same structure and conventions as existing code
+2. **Maintain separation of concerns** - Keep business logic in services, routes thin
+3. **Implement proper error handling** - Always use try-catch and proper logging
+4. **Use standardized responses** - Always use ResponseUtils for API responses
+5. **Validate input data** - Always validate and sanitize user inputs
+6. **Update business logic** - When modifying applications, update student's highest status
+7. **Write comprehensive tests** - Include tests for new functionality
+8. **Follow RESTful conventions** - Use proper HTTP methods and status codes
+9. **Document changes** - Update documentation for API changes
+10. **Consider performance** - Optimize database queries and use pagination
+11. **Organize documentation** - Place all markdown files in `docs/` folder (except `README.md` in root)
+
+## Key Files to Reference
+
+- `app/__init__.py` - Application factory and configuration
+- `app/extensions.py` - Third-party integrations (database, etc.)
+- `app/utils.py` - Standardized API responses and utilities
+- `app/student/models.py` - Student model with validation
+- `app/application/models.py` - Application model with status hierarchy
+- `app/student/services.py` - Student business logic
+- `app/application/services.py` - Application business logic
+- `app/student/routes.py` - Student API routes
+- `app/application/routes.py` - Application API routes
+- `config.py` - Environment-based configuration
+- `run.py` - Application entry point
+- `tests/` - Comprehensive test suite examples
+
+Remember: This is a production-ready API with comprehensive testing, proper error handling, and business logic validation. Always maintain these standards when making changes.
